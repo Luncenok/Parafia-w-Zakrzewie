@@ -1,0 +1,53 @@
+package com.idziejczak.kosciol.ui.main
+
+import android.content.Context
+import android.content.Intent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.RelativeLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import com.idziejczak.kosciol.R
+import com.idziejczak.kosciol.database.Biblia
+import com.idziejczak.kosciol.ui.wybor.WyborActivity
+
+class HomeAdapter internal constructor(context: Context) :
+    RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+
+    private var mLiksiegi = emptyList<Biblia>()
+    private var mContext = context
+
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var textView: TextView = itemView.findViewById(R.id.ksiegiTV)
+        var layouty: RelativeLayout = itemView.findViewById(R.id.relatiflejalt)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.home_element, parent, false)
+        val holder: ViewHolder = ViewHolder(view)
+        return holder
+    }
+
+    override fun getItemCount(): Int {
+        return mLiksiegi.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.textView.text = mLiksiegi[position].ksiega
+        holder.layouty.setOnClickListener(View.OnClickListener {
+//            Toast.makeText(mContext, mLiksiegi[position].werset, Toast.LENGTH_SHORT).show()
+            val intent = Intent(mContext, WyborActivity::class.java)
+            intent.putExtra("kategoria", mLiksiegi[position].ksiega)
+            mContext.startActivity(intent)
+        })
+    }
+
+    internal fun setLiBiblia(liKsiegi: List<Biblia>) {
+        this.mLiksiegi = liKsiegi
+        notifyDataSetChanged()
+    }
+}
