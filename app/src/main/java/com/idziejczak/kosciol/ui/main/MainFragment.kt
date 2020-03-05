@@ -47,17 +47,17 @@ class MainFragment : Fragment() {
 //        viewModel.allBibliaPoRozdziale.observe(this, Observer { libiblia ->
 //            libiblia.let { homeAdapter?.setLiBiblia(it) }
 //        })
-        viewModel.dwnldcontent(context, swl)
+        viewModel.dwnldcontent(swl)
 
         if (sharedPref!!.getBoolean(getString(R.string.first_app_use), true)) {
-            viewModel.dwnldcontent(context, swl)
+            viewModel.dwnldcontent(swl)
             Toast.makeText(context, "Próba pobierania danych rozpoczęta…", Toast.LENGTH_LONG).show()
             sharedPref.edit().putBoolean(getString(R.string.first_app_use), false).apply()
         }
 
-        swl.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
-            viewModel.dwnldcontent(context, swl)
-        })
+        swl.setOnRefreshListener {
+            viewModel.dwnldcontent(swl)
+        }
 
         val intent = Intent(activity, WyborActivity::class.java)
         val ogloszeniaLayout = root.findViewById<LinearLayout>(R.id.ogloszenia_layout)
@@ -67,30 +67,30 @@ class MainFragment : Fragment() {
         val sakramentyLayout = root.findViewById<LinearLayout>(R.id.sakramenty_layout)
         val kontaktLayout = root.findViewById<LinearLayout>(R.id.kontakt_layout)
 
-        ogloszeniaLayout.setOnClickListener(View.OnClickListener {
+        ogloszeniaLayout.setOnClickListener {
             intent.putExtra("kategoria", "Ogłoszenia")
             startActivity(intent)
-        })
-        aktualnosciLayout.setOnClickListener(View.OnClickListener {
+        }
+        aktualnosciLayout.setOnClickListener {
             intent.putExtra("kategoria", "Aktualności")
             startActivity(intent)
-        })
-        intencjeLayout.setOnClickListener(View.OnClickListener {
+        }
+        intencjeLayout.setOnClickListener {
             intent.putExtra("kategoria", "Intencje")
             startActivity(intent)
-        })
-        parafiaLayout.setOnClickListener(View.OnClickListener {
+        }
+        parafiaLayout.setOnClickListener {
             intent.putExtra("kategoria", "Historia parafii")
             startActivity(intent)
-        })
-        sakramentyLayout.setOnClickListener(View.OnClickListener {
+        }
+        sakramentyLayout.setOnClickListener {
             intent.putExtra("kategoria", "Sakramenty")
             startActivity(intent)
-        })
-        kontaktLayout.setOnClickListener(View.OnClickListener {
+        }
+        kontaktLayout.setOnClickListener {
             intent.putExtra("kategoria", "Kontakt")
             startActivity(intent)
-        })
+        }
 
 
         return root
