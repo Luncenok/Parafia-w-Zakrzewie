@@ -13,11 +13,13 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainFragment">
         <TextView
+            android:id="@+id/odswiez_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Przeciągnij z góry do dołu aby pobrać"/>
+            android:textSize="15sp"
+            android:text="Kliknij tu lub przeciągnij z góry do dołu aby odświeżyć"/>
 
             <!--        <androidx.recyclerview.widget.RecyclerView-->
             <!--            android:id="@+id/recycler_view"-->

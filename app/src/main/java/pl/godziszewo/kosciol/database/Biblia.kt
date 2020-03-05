@@ -1,4 +1,4 @@
-package com.idziejczak.kosciol.database
+package pl.godziszewo.kosciol.database
 
 import android.text.Spanned
 import androidx.room.ColumnInfo

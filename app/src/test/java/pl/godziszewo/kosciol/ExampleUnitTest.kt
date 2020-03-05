@@ -1,4 +1,4 @@
-package com.idziejczak.kosciol
+package pl.godziszewo.kosciol
 
 import org.junit.Test
 

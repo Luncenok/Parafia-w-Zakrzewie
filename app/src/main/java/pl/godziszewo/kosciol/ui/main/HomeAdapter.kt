@@ -1,4 +1,4 @@
-package com.idziejczak.kosciol.ui.main
+package pl.godziszewo.kosciol.ui.main
 
 import android.content.Context
 import android.content.Intent
@@ -9,9 +9,9 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.idziejczak.kosciol.R
-import com.idziejczak.kosciol.database.Biblia
-import com.idziejczak.kosciol.ui.wybor.WyborActivity
+import pl.godziszewo.kosciol.R
+import pl.godziszewo.kosciol.database.Biblia
+import pl.godziszewo.kosciol.ui.wybor.WyborActivity
 
 class HomeAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {

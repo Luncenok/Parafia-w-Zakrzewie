@@ -1,8 +1,8 @@
-package com.idziejczak.kosciol.ui.wybor
+package pl.godziszewo.kosciol.ui.wybor
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.idziejczak.kosciol.R
+import pl.godziszewo.kosciol.R
 
 class WyborActivity : AppCompatActivity() {
 

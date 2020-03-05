@@ -1,4 +1,4 @@
-package com.idziejczak.kosciol.ui.main
+package pl.godziszewo.kosciol.ui.main
 
 import android.app.Application
 import android.text.SpannableStringBuilder
@@ -7,9 +7,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
-import com.idziejczak.kosciol.database.AppDatabase
-import com.idziejczak.kosciol.database.Biblia
-import com.idziejczak.kosciol.database.BibliaRepository
+import pl.godziszewo.kosciol.database.AppDatabase
+import pl.godziszewo.kosciol.database.Biblia
+import pl.godziszewo.kosciol.database.BibliaRepository
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import timber.log.Timber
@@ -28,6 +28,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun dwnldcontent(refreshLayout: SwipeRefreshLayout) {
+        refreshLayout.isRefreshing = true
         dwnldAktualnosci(refreshLayout)
         dwnldIntencje()
         dwnldOgloszenia()

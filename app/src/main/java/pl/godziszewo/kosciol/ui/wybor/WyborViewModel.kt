@@ -1,19 +1,14 @@
-package com.idziejczak.kosciol.ui.wybor
+package pl.godziszewo.kosciol.ui.wybor
 
 import android.app.Application
-import android.content.Context
 import android.text.Html
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.idziejczak.kosciol.database.AppDatabase
-import com.idziejczak.kosciol.database.Biblia
-import com.idziejczak.kosciol.database.BibliaRepository
-import kotlinx.android.synthetic.main.wybor_fragment.*
+import pl.godziszewo.kosciol.database.AppDatabase
+import pl.godziszewo.kosciol.database.Biblia
+import pl.godziszewo.kosciol.database.BibliaRepository
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import timber.log.Timber

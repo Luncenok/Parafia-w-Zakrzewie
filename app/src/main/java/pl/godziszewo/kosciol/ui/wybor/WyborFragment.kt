@@ -1,4 +1,4 @@
-package com.idziejczak.kosciol.ui.wybor
+package pl.godziszewo.kosciol.ui.wybor
 
 import android.os.Bundle
 import android.text.Spannable
@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.idziejczak.kosciol.R
+import pl.godziszewo.kosciol.R
 import kotlinx.android.synthetic.main.wybor_fragment.*
 
 class WyborFragment : Fragment() {

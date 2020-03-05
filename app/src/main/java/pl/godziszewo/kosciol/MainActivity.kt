@@ -1,8 +1,8 @@
-package com.idziejczak.kosciol
+package pl.godziszewo.kosciol
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.idziejczak.kosciol.ui.main.MainFragment
+import pl.godziszewo.kosciol.ui.main.MainFragment
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {

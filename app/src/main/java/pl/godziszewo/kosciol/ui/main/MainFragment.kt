@@ -1,4 +1,4 @@
-package com.idziejczak.kosciol.ui.main
+package pl.godziszewo.kosciol.ui.main
 
 import android.content.Context
 import android.content.Intent
@@ -7,13 +7,15 @@ import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.idziejczak.kosciol.R
-import com.idziejczak.kosciol.ui.wybor.WyborActivity
+import pl.godziszewo.kosciol.R
+import pl.godziszewo.kosciol.ui.wybor.WyborActivity
 import timber.log.Timber
 
 class MainFragment : Fragment() {
@@ -37,6 +39,7 @@ class MainFragment : Fragment() {
         )
 
         val swl: SwipeRefreshLayout = root.findViewById(R.id.swipe_refresh_layout)
+        val odswiezBtn = root.findViewById<TextView>(R.id.odswiez_btn)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
 //        val recyclerView: RecyclerView = root.findViewById(R.id.recycler_view)
@@ -56,6 +59,10 @@ class MainFragment : Fragment() {
         }
 
         swl.setOnRefreshListener {
+            viewModel.dwnldcontent(swl)
+        }
+        odswiezBtn.setOnClickListener {
+            swl.isRefreshing = true
             viewModel.dwnldcontent(swl)
         }
 
