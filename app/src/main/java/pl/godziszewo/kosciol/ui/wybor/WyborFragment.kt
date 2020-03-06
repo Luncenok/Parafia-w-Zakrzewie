@@ -11,8 +11,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import pl.godziszewo.kosciol.R
 import kotlinx.android.synthetic.main.wybor_fragment.*
+import java.util.*
 
 class WyborFragment : Fragment() {
 
@@ -21,6 +26,8 @@ class WyborFragment : Fragment() {
     }
 
     private lateinit var viewModel: WyborViewModel
+    lateinit var mAdView : AdView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +35,12 @@ class WyborFragment : Fragment() {
     ): View {
         val root: View = inflater.inflate(R.layout.wybor_fragment, container, false)
         viewModel = ViewModelProviders.of(this).get(WyborViewModel::class.java)
+
+        RequestConfiguration.Builder().setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7"))
+        MobileAds.initialize(context) {}
+        mAdView = root.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().addTestDevice("2CD358774D33097FEBD7FE62A5ADE1A7").build()
+        mAdView.loadAd(adRequest)
 
         return root
     }
@@ -39,7 +52,7 @@ class WyborFragment : Fragment() {
         val kategoria = activity?.intent?.getStringExtra("kategoria")
         activity?.title = if (kategoria=="Historia parafii") "Parafia" else kategoria
         var dod: String = ""
-        viewModel.allSpanstr.observe(this, Observer {
+        viewModel.allSpanstr.observe(viewLifecycleOwner, Observer {
             it.forEach { biblia ->
                 if (kategoria=="Historia parafii") {
                     if (biblia.ksiega==kategoria||biblia.ksiega=="Cmentarz"||biblia.ksiega=="Nasz patron")

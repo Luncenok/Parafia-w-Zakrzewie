@@ -40,8 +40,8 @@
                 android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:id="@+id/ogloszenia_layout"
@@ -69,8 +69,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:id="@+id/aktualnosci_layout"
@@ -104,8 +104,8 @@
                 android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/intencje_layout"
@@ -132,8 +132,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/parafia_layout"
@@ -166,8 +166,8 @@
                 android:layout_weight="1">
 
                 <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/sakramenty_layout"
@@ -194,8 +194,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/kontakt_layout"

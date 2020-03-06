@@ -54,7 +54,6 @@ class MainFragment : Fragment() {
 
         if (sharedPref!!.getBoolean(getString(R.string.first_app_use), true)) {
             viewModel.dwnldcontent(swl)
-            Toast.makeText(context, "Próba pobierania danych rozpoczęta…", Toast.LENGTH_LONG).show()
             sharedPref.edit().putBoolean(getString(R.string.first_app_use), false).apply()
         }
 

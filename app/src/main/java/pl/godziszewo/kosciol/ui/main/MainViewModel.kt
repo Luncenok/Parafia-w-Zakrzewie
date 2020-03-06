@@ -270,7 +270,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 inser(biblia)
                 Timber.i("Kontakt koniec")
             } catch (e: UnknownHostException) {
-                Snackbar.make(refreshLayout, "Brak internetu", Snackbar.LENGTH_INDEFINITE).show()
+                Snackbar.make(refreshLayout, "Brak internetu", Snackbar.LENGTH_LONG).show()
                 refreshLayout.isRefreshing = false
                 Timber.i("Brak internetu")
             } catch (e: Exception) {
