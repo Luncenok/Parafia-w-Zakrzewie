@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
-import pl.godziszewo.kosciol.R
 import kotlinx.android.synthetic.main.wybor_fragment.*
+import pl.godziszewo.kosciol.R
 
 class InfoFragment : Fragment() {
 
@@ -29,12 +29,13 @@ class InfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.wybor_fragment, container, false)
-        viewModel = ViewModelProviders.of(this).get(InfoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
-        RequestConfiguration.Builder().setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7"))
+        val req = RequestConfiguration.Builder().setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7")).build()
+        MobileAds.setRequestConfiguration(req)
         MobileAds.initialize(context) {}
         mAdView = root.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().addTestDevice("2CD358774D33097FEBD7FE62A5ADE1A7").build()
+        val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
         return root
@@ -42,7 +43,7 @@ class InfoFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(InfoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         val kategoria = activity?.intent?.getStringExtra("kategoria")
         activity?.title = if (kategoria=="Historia parafii") "Parafia" else kategoria

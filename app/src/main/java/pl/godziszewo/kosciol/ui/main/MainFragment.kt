@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.ui.info.InfoActivity
@@ -38,7 +38,7 @@ class MainFragment : Fragment() {
 
         val swl: SwipeRefreshLayout = root.findViewById(R.id.swipe_refresh_layout)
         val odswiezBtn = root.findViewById<TextView>(R.id.odswiez_btn)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
 //        val recyclerView: RecyclerView = root.findViewById(R.id.recycler_view)
 //        val homeAdapter = context?.let { HomeAdapter(it) }
@@ -104,13 +104,13 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         Timber.e("OnActivityCreated created")
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
     override fun onResume() {
         super.onResume()
         Timber.e("Siemanowice resumowice")
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 //        viewModel.dwnldFromPage(context)
     }
 

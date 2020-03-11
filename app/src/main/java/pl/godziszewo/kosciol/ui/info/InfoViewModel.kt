@@ -1,8 +1,10 @@
 package pl.godziszewo.kosciol.ui.info
 
 import android.app.Application
+import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -30,7 +32,11 @@ class InfoViewModel(application: Application) : AndroidViewModel(application) {
 
 
     fun naSpanned(html: String?): Spanned {
-        return Html.fromHtml(html)
+        @Suppress("DEPRECATION")
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            Html.fromHtml(html, HtmlCompat.FROM_HTML_MODE_LEGACY)
+        else
+            Html.fromHtml(html)
     }
 
     fun inser(biblia: Biblia) = viewModelScope.launch {
