@@ -7,15 +7,13 @@ import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import pl.godziszewo.kosciol.R
-import pl.godziszewo.kosciol.ui.wybor.WyborActivity
+import pl.godziszewo.kosciol.ui.info.InfoActivity
 import timber.log.Timber
 
 class MainFragment : Fragment() {
@@ -65,7 +63,7 @@ class MainFragment : Fragment() {
             viewModel.dwnldcontent(swl)
         }
 
-        val intent = Intent(activity, WyborActivity::class.java)
+        val intent = Intent(activity, InfoActivity::class.java)
         val ogloszeniaLayout = root.findViewById<LinearLayout>(R.id.ogloszenia_layout)
         val aktualnosciLayout = root.findViewById<LinearLayout>(R.id.aktualnosci_layout)
         val intencjeLayout = root.findViewById<LinearLayout>(R.id.intencje_layout)

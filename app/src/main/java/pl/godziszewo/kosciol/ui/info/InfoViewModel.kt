@@ -1,4 +1,4 @@
-package pl.godziszewo.kosciol.ui.wybor
+package pl.godziszewo.kosciol.ui.info
 
 import android.app.Application
 import android.text.Html
@@ -10,11 +10,8 @@ import pl.godziszewo.kosciol.database.AppDatabase
 import pl.godziszewo.kosciol.database.Biblia
 import pl.godziszewo.kosciol.database.BibliaRepository
 import kotlinx.coroutines.launch
-import org.jsoup.Jsoup
-import timber.log.Timber
-import java.net.UnknownHostException
 
-class WyborViewModel(application: Application) : AndroidViewModel(application) {
+class InfoViewModel(application: Application) : AndroidViewModel(application) {
     // dzieje się
     private val repository: BibliaRepository
     val allBiblia: LiveData<List<Biblia>>

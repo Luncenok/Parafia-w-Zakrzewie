@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.database.Biblia
-import pl.godziszewo.kosciol.ui.wybor.WyborActivity
+import pl.godziszewo.kosciol.ui.info.InfoActivity
 
 class HomeAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
@@ -28,8 +27,7 @@ class HomeAdapter internal constructor(context: Context) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.home_element, parent, false)
-        val holder: ViewHolder = ViewHolder(view)
-        return holder
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -38,12 +36,12 @@ class HomeAdapter internal constructor(context: Context) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = mLiksiegi[position].ksiega
-        holder.layouty.setOnClickListener(View.OnClickListener {
-//            Toast.makeText(mContext, mLiksiegi[position].werset, Toast.LENGTH_SHORT).show()
-            val intent = Intent(mContext, WyborActivity::class.java)
+        holder.layouty.setOnClickListener {
+    //            Toast.makeText(mContext, mLiksiegi[position].werset, Toast.LENGTH_SHORT).show()
+            val intent = Intent(mContext, InfoActivity::class.java)
             intent.putExtra("kategoria", mLiksiegi[position].ksiega)
             mContext.startActivity(intent)
-        })
+        }
     }
 
     internal fun setLiBiblia(liKsiegi: List<Biblia>) {

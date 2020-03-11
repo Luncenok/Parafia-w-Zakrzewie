@@ -1,13 +1,9 @@
-package pl.godziszewo.kosciol.ui.wybor
+package pl.godziszewo.kosciol.ui.info
 
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -17,15 +13,14 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import pl.godziszewo.kosciol.R
 import kotlinx.android.synthetic.main.wybor_fragment.*
-import java.util.*
 
-class WyborFragment : Fragment() {
+class InfoFragment : Fragment() {
 
     companion object {
-        fun newInstance() = WyborFragment()
+        fun newInstance() = InfoFragment()
     }
 
-    private lateinit var viewModel: WyborViewModel
+    private lateinit var viewModel: InfoViewModel
     lateinit var mAdView : AdView
 
 
@@ -34,7 +29,7 @@ class WyborFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.wybor_fragment, container, false)
-        viewModel = ViewModelProviders.of(this).get(WyborViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(InfoViewModel::class.java)
 
         RequestConfiguration.Builder().setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7"))
         MobileAds.initialize(context) {}
@@ -47,11 +42,11 @@ class WyborFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(WyborViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(InfoViewModel::class.java)
 
         val kategoria = activity?.intent?.getStringExtra("kategoria")
         activity?.title = if (kategoria=="Historia parafii") "Parafia" else kategoria
-        var dod: String = ""
+        var dod = ""
         viewModel.allSpanstr.observe(viewLifecycleOwner, Observer {
             it.forEach { biblia ->
                 if (kategoria=="Historia parafii") {
