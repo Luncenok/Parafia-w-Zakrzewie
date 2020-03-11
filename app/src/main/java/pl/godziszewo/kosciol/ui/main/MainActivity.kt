@@ -1,8 +1,9 @@
-package pl.godziszewo.kosciol
+package pl.godziszewo.kosciol.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import pl.godziszewo.kosciol.ui.main.MainFragment
+import pl.godziszewo.kosciol.BuildConfig
+import pl.godziszewo.kosciol.R
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
