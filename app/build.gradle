@@ -51,7 +51,7 @@ dependencies {
     //swipe refresh
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //snackbar
-    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.android.material:material:1.1.0'
     //ads
     implementation 'com.google.android.gms:play-services-ads:19.0.1'
     //glide
