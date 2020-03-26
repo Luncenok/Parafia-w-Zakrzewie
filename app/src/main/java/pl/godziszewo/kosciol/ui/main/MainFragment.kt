@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import pl.godziszewo.kosciol.R
+import pl.godziszewo.kosciol.ui.galleries.GalleriesActivity
 import pl.godziszewo.kosciol.ui.info.InfoActivity
 import timber.log.Timber
 
@@ -88,8 +89,8 @@ class MainFragment : Fragment() {
             startActivity(intent)
         }
         sakramentyLayout.setOnClickListener {
-            intent.putExtra("kategoria", "Sakramenty")
-            startActivity(intent)
+            val intent2 = Intent(activity, GalleriesActivity::class.java)
+            startActivity(intent2)
         }
         kontaktLayout.setOnClickListener {
             intent.putExtra("kategoria", "Kontakt")
@@ -104,7 +105,6 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         Timber.e("OnActivityCreated created")
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
     override fun onResume() {

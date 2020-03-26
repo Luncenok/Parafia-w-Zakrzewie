@@ -7,48 +7,48 @@ import androidx.room.Query
 
 @Dao
 interface BibliaDao {
-    @Query("SELECT * FROM biblia")
+    @Query("SELECT * FROM biblias")
     fun getAll(): LiveData<List<Biblia>>
 
-    @Query("SELECT * FROM biblia WHERE rozdzial = :rozdzial")
+    @Query("SELECT * FROM biblias WHERE rozdzial = :rozdzial")
     fun getPoRozdziale(rozdzial: String): LiveData<List<Biblia>>
 
-    @Query("SELECT * FROM biblia WHERE rozdzial = :rozdzial")
+    @Query("SELECT * FROM biblias WHERE rozdzial = :rozdzial")
     fun getPoSpanstr(rozdzial: String): LiveData<List<Biblia>>
 
-    @Query("SELECT ksiega FROM biblia")
+    @Query("SELECT ksiega FROM biblias")
     fun getKsiegi(): LiveData<List<String>>
 
     @Insert
     suspend fun inser(biblia: Biblia)
 
-    @Query("DELETE FROM biblia")
+    @Query("DELETE FROM biblias")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'home'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'home'")
     suspend fun deleteHome()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Aktualności'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Aktualności'")
     suspend fun delSpanstrAkt()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Ogłoszenia'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Ogłoszenia'")
     suspend fun delSpanstrOgl()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Intencje'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Intencje'")
     suspend fun delSpanstrInt()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Historia parafii'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Historia parafii'")
     suspend fun delSpanstrHis()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Nasz patron'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Nasz patron'")
     suspend fun delSpanstrPat()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Cmentarz'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Cmentarz'")
     suspend fun delSpanstrCmt()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Sakramenty'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Sakramenty'")
     suspend fun delSpanstrSak()
 
-    @Query("DELETE FROM biblia WHERE rozdzial = 'spanstr' AND ksiega = 'Kontakt'")
+    @Query("DELETE FROM biblias WHERE rozdzial = 'spanstr' AND ksiega = 'Kontakt'")
     suspend fun delSpanstrKon()
 }

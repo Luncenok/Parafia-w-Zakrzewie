@@ -8,10 +8,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Biblia::class], version = 1)
+@Database(entities = [Biblia::class,GalleryInfo::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun bibliaDao(): BibliaDao
+    abstract fun galleryInfoDao(): GalleryInfoDao
 
     private class WordDatabaseCallback(
         private val scope: CoroutineScope
@@ -21,7 +22,8 @@ abstract class AppDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    val bibliaDao = database.bibliaDao()
+//                    val bibliaDao = database.bibliaDao()
+//                    val galleryInfoDao = database.galleryInfoDao()
 //                    // Add sample words.
 //                    val ksiega = Biblia(0, "test", "", "")
 //                    val ksiega2 = Biblia(0, "tes", "", "")

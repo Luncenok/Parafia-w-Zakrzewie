@@ -12,13 +12,13 @@
         android:roundIcon="@drawable/ic_church_svgrepo_com"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.gallery.GalleryActivity"></activity>
+        <activity android:name=".ui.galleries.GalleriesActivity"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-7457190986528845~7872768660" />
 
-        <activity android:name=".ui.info.InfoActivity"></activity>
+        <activity android:name=".ui.info.InfoActivity"/>
         <activity
             android:name=".ui.main.MainActivity"
             android:screenOrientation="portrait">
