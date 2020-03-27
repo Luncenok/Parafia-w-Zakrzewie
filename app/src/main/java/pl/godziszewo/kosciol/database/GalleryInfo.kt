@@ -10,6 +10,7 @@ data class GalleryInfo(
 
     @ColumnInfo(name = "photosrc") val photosrc: String,
     @ColumnInfo(name = "link") val link: String,
+    @ColumnInfo(name = "linki") var linki: String,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "date") val date: String
 )

@@ -27,11 +27,11 @@ class GalleriesFragment : Fragment() {
     ): View {
         val root = inflater.inflate(R.layout.galleries_fragment, container, false)
 
-        val recyclerView: RecyclerView = root.findViewById(R.id.gallery_recyclerview)
+        val recyclerView: RecyclerView = root.findViewById(R.id.galleries_recyclerview)
         viewModel = ViewModelProvider(this).get(GalleriesViewModel::class.java)
-        val galleryRecyclerAdapter = context?.let { GalleriesRecyclerAdapter(it) }
+        val galleriesRecyclerAdapter = context?.let { GalleriesRecyclerAdapter(it) }
         recyclerView.apply {
-            adapter = galleryRecyclerAdapter
+            adapter = galleriesRecyclerAdapter
             layoutManager = LinearLayoutManager(context)
             val topSpacingItemDecoration = TopSpacingItemDecoration(10)
             addItemDecoration(topSpacingItemDecoration)
@@ -39,7 +39,7 @@ class GalleriesFragment : Fragment() {
         viewModel.dwnldcontent()
 
         viewModel.allGalleryInfo.observe(viewLifecycleOwner, Observer {
-            galleryRecyclerAdapter?.setItems(it)
+            galleriesRecyclerAdapter?.setItems(it)
             Timber.e(it.toString())
         })
 

@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.database.GalleryInfo
-import pl.godziszewo.kosciol.ui.info.InfoActivity
+import pl.godziszewo.kosciol.ui.gallery.GalleryActivity
 
 class GalleriesRecyclerAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<GalleriesRecyclerAdapter.ViewHolder>() {
@@ -22,22 +22,22 @@ class GalleriesRecyclerAdapter internal constructor(context: Context) :
     private var mContext = context
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var galleryImage: ImageView = itemView.findViewById(R.id.gallery_image)
-        var galleryTitle: TextView = itemView.findViewById(R.id.gallery_title)
-        var galleryDate: TextView = itemView.findViewById(R.id.gallery_date)
-        var galleryContainer: ConstraintLayout = itemView.findViewById(R.id.gallery_container)
+        var galleryImage: ImageView = itemView.findViewById(R.id.galleries_image)
+        var galleryTitle: TextView = itemView.findViewById(R.id.galleries_title)
+        var galleryDate: TextView = itemView.findViewById(R.id.galleries_date)
+        var galleryContainer: ConstraintLayout = itemView.findViewById(R.id.galleries_container)
 
         fun bind(galleryInfo: GalleryInfo) {
             galleryTitle.text = galleryInfo.title
             galleryDate.text = galleryInfo.date
             galleryContainer.setOnClickListener {
-                val intent = Intent(mContext, InfoActivity::class.java)
-                intent.putExtra("kategoria", galleryInfo.link)
+                val intent = Intent(mContext, GalleryActivity::class.java)
+                intent.putExtra("link", galleryInfo.id)
                 mContext.startActivity(intent)
             }
             val requestOptions = RequestOptions()
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_holy_ghost)
+                .error(R.drawable.ic_holy_ghost)
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
                 .load(galleryInfo.photosrc)
