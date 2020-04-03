@@ -40,8 +40,8 @@ class GalleryFragment : Fragment() {
 
         val link = activity?.intent?.getIntExtra("link", 0)
         viewModel.allGalleryInfo.observe(viewLifecycleOwner, Observer { list ->
-            list.forEach {gi ->
-                if (gi.id==link) {
+            list.forEach { gi ->
+                if (gi.id == link) {
                     val linki = gi.linki.split(",")
                     galleryRecyclerAdapter?.setItems(linki)
                     Timber.e("ustawniono")

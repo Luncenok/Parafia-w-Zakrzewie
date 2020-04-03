@@ -1,13 +1,12 @@
 package pl.godziszewo.kosciol.ui.gallery
 
 import android.app.Application
-import androidx.lifecycle.*
-import org.jsoup.Jsoup
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import pl.godziszewo.kosciol.database.AppDatabase
 import pl.godziszewo.kosciol.database.GalleryInfo
 import pl.godziszewo.kosciol.database.GalleryInfoRepository
-import timber.log.Timber
-import java.net.UnknownHostException
 
 class GalleryViewModel(application: Application) : AndroidViewModel(application) {
 

@@ -8,13 +8,12 @@ import androidx.core.text.HtmlCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import pl.godziszewo.kosciol.database.AppDatabase
 import pl.godziszewo.kosciol.database.Biblia
 import pl.godziszewo.kosciol.database.BibliaRepository
-import kotlinx.coroutines.launch
 
 class InfoViewModel(application: Application) : AndroidViewModel(application) {
-    // dzieje się
     private val repository: BibliaRepository
     val allBiblia: LiveData<List<Biblia>>
     val allSpanstr: LiveData<List<Biblia>>
@@ -37,17 +36,5 @@ class InfoViewModel(application: Application) : AndroidViewModel(application) {
             Html.fromHtml(html, HtmlCompat.FROM_HTML_MODE_LEGACY)
         else
             Html.fromHtml(html)
-    }
-
-    fun inser(biblia: Biblia) = viewModelScope.launch {
-        repository.inser(biblia)
-    }
-
-    fun delall() = viewModelScope.launch {
-        repository.delall()
-    }
-
-    fun delHome() = viewModelScope.launch {
-        repository.delHome()
     }
 }

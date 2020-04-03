@@ -7,11 +7,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
+import org.jsoup.Jsoup
 import pl.godziszewo.kosciol.database.AppDatabase
 import pl.godziszewo.kosciol.database.Biblia
 import pl.godziszewo.kosciol.database.BibliaRepository
-import kotlinx.coroutines.launch
-import org.jsoup.Jsoup
 import timber.log.Timber
 import java.net.UnknownHostException
 

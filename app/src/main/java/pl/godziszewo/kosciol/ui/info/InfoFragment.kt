@@ -21,7 +21,7 @@ class InfoFragment : Fragment() {
     }
 
     private lateinit var viewModel: InfoViewModel
-    lateinit var mAdView : AdView
+    lateinit var mAdView: AdView
 
 
     override fun onCreateView(
@@ -31,7 +31,8 @@ class InfoFragment : Fragment() {
         val root: View = inflater.inflate(R.layout.wybor_fragment, container, false)
         viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
-        val req = RequestConfiguration.Builder().setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7")).build()
+        val req = RequestConfiguration.Builder()
+            .setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7")).build()
         MobileAds.setRequestConfiguration(req)
         MobileAds.initialize(context) {}
         mAdView = root.findViewById(R.id.adView)
@@ -46,16 +47,15 @@ class InfoFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         val kategoria = activity?.intent?.getStringExtra("kategoria")
-        activity?.title = if (kategoria=="Historia parafii") "Parafia" else kategoria
+        activity?.title = if (kategoria == "Historia parafii") "Parafia" else kategoria
         var dod = ""
         viewModel.allSpanstr.observe(viewLifecycleOwner, Observer {
             it.forEach { biblia ->
-                if (kategoria=="Historia parafii") {
-                    if (biblia.ksiega==kategoria||biblia.ksiega=="Cmentarz"||biblia.ksiega=="Nasz patron")
-                        dod+=biblia.werset
-                    messag.text=viewModel.naSpanned(dod)
-                }
-                else if (biblia.ksiega==kategoria) {
+                if (kategoria == "Historia parafii") {
+                    if (biblia.ksiega == kategoria || biblia.ksiega == "Cmentarz" || biblia.ksiega == "Nasz patron")
+                        dod += biblia.werset
+                    messag.text = viewModel.naSpanned(dod)
+                } else if (biblia.ksiega == kategoria) {
                     messag.text = viewModel.naSpanned(biblia.werset)
                 }
             }

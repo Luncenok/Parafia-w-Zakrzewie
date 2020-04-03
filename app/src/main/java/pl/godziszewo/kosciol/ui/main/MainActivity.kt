@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
         if (BuildConfig.DEBUG) {
-            Timber.plant( Timber.DebugTree())
+            Timber.plant(Timber.DebugTree())
         }
 
 

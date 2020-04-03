@@ -1,7 +1,7 @@
 package pl.godziszewo.kosciol.ui.gallery
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import pl.godziszewo.kosciol.R
 
 class GalleryActivity : AppCompatActivity() {

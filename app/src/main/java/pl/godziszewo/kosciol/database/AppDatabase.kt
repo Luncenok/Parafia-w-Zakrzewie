@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Biblia::class,GalleryInfo::class], version = 1)
+@Database(entities = [Biblia::class, GalleryInfo::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun bibliaDao(): BibliaDao

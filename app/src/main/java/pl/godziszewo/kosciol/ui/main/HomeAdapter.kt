@@ -37,7 +37,7 @@ class HomeAdapter internal constructor(context: Context) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = mLiksiegi[position].ksiega
         holder.layouty.setOnClickListener {
-    //            Toast.makeText(mContext, mLiksiegi[position].werset, Toast.LENGTH_SHORT).show()
+            //            Toast.makeText(mContext, mLiksiegi[position].werset, Toast.LENGTH_SHORT).show()
             val intent = Intent(mContext, InfoActivity::class.java)
             intent.putExtra("kategoria", mLiksiegi[position].ksiega)
             mContext.startActivity(intent)

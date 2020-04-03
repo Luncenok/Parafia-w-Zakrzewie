@@ -22,10 +22,10 @@ class GalleriesRecyclerAdapter internal constructor(context: Context) :
     private var mContext = context
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var galleryImage: ImageView = itemView.findViewById(R.id.galleries_image)
-        var galleryTitle: TextView = itemView.findViewById(R.id.galleries_title)
-        var galleryDate: TextView = itemView.findViewById(R.id.galleries_date)
-        var galleryContainer: ConstraintLayout = itemView.findViewById(R.id.galleries_container)
+        private var galleryImage: ImageView = itemView.findViewById(R.id.galleries_image)
+        private var galleryTitle: TextView = itemView.findViewById(R.id.galleries_title)
+        private var galleryDate: TextView = itemView.findViewById(R.id.galleries_date)
+        private var galleryContainer: ConstraintLayout = itemView.findViewById(R.id.galleries_container)
 
         fun bind(galleryInfo: GalleryInfo) {
             galleryTitle.text = galleryInfo.title

@@ -34,10 +34,12 @@ class GalleriesViewModel(application: Application) : AndroidViewModel(applicatio
                     Timber.i("Gallery sa pobierane")
                     var list = ""
                     try {
-                        val doc = Jsoup.connect("https://kazimierz.archpoznan.pl"+elem.attr("href")).get().body()
-                        doc.select(".thumbnail>a").forEach { elem ->
-                            list+="https://kazimierz.archpoznan.pl"+elem.attr("href")+","
-                            Timber.e("https://kazimierz.archpoznan.pl"+elem.attr("src"))
+                        val doc1 =
+                            Jsoup.connect("https://kazimierz.archpoznan.pl" + elem.attr("href"))
+                                .get().body()
+                        doc1.select(".thumbnail>a").forEach { elemen ->
+                            list += "https://kazimierz.archpoznan.pl" + elemen.attr("href") + ","
+                            Timber.e("""https://kazimierz.archpoznan.pl${elemen.attr("src")}""")
                         }
                         list = list.dropLast(1)
                         Timber.i("gallery koniec")
@@ -48,8 +50,8 @@ class GalleriesViewModel(application: Application) : AndroidViewModel(applicatio
                     }
                     val galleryInfo = GalleryInfo(
                         0,
-                        "https://kazimierz.archpoznan.pl"+elem.select("img").attr("src"),
-                        "https://kazimierz.archpoznan.pl"+elem.attr("href"),
+                        "https://kazimierz.archpoznan.pl" + elem.select("img").attr("src"),
+                        "https://kazimierz.archpoznan.pl" + elem.attr("href"),
                         list,
                         elem.text().substring(0, elem.text().length - 11),
                         elem.text().substring(elem.text().length - 10, elem.text().length - 1)
