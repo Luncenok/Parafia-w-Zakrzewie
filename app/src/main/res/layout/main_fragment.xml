@@ -179,7 +179,7 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
-                        android:contentDescription="Sakramenty"
+                        android:contentDescription="Zdjęcia"
                         android:src="@drawable/ic_holy_ghost" />
 
                     <TextView
@@ -190,7 +190,7 @@
                         android:layout_marginTop="20dp"
                         android:textColor="@color/colorPrimaryLight"
                         android:textSize="20sp"
-                        android:text="Sakramenty" />
+                        android:text="Zdjęcia" />
                 </LinearLayout>
 
                 <LinearLayout

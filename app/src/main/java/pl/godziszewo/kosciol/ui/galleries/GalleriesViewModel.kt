@@ -54,7 +54,7 @@ class GalleriesViewModel(application: Application) : AndroidViewModel(applicatio
                         "https://kazimierz.archpoznan.pl" + elem.attr("href"),
                         list,
                         elem.text().substring(0, elem.text().length - 11),
-                        elem.text().substring(elem.text().length - 10, elem.text().length - 1)
+                        elem.text().substring(elem.text().length - 10, elem.text().length)
                     )
                     insert(galleryInfo)
                 }

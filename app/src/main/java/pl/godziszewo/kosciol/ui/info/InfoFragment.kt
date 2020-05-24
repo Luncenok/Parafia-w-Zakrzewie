@@ -32,7 +32,7 @@ class InfoFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         val req = RequestConfiguration.Builder()
-            .setTestDeviceIds(listOf("2CD358774D33097FEBD7FE62A5ADE1A7")).build()
+            .setTestDeviceIds(listOf("2A1965EA634A02D70CBC9CF1070DCF26")).build()
         MobileAds.setRequestConfiguration(req)
         MobileAds.initialize(context) {}
         mAdView = root.findViewById(R.id.adView)

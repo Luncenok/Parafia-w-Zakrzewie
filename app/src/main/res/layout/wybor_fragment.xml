@@ -7,36 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".ui.info.InfoFragment">
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:adSize="SMART_BANNER"
+        app:adUnitId="ca-app-pub-7457190986528845/6777456645"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.gms.ads.AdView>
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                ads:adSize="SMART_BANNER"
-                ads:adUnitId="ca-app-pub-7457190986528845/6777456645">
-            </com.google.android.gms.ads.AdView>
-
             <TextView
                 android:id="@+id/messag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
-                android:textSize="17sp"
-                android:text="@string/go_download_data" />
+                android:text="@string/go_download_data"
+                android:textSize="17sp" />
         </LinearLayout>
     </ScrollView>
 
