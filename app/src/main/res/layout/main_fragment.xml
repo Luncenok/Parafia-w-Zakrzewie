@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.main.MainFragment">
+
         <TextView
             android:id="@+id/odswiez_btn"
             android:layout_width="wrap_content"
@@ -19,34 +20,44 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
-            android:text="Kliknij tu lub przeciągnij z góry do dołu aby odświeżyć"/>
+            android:text="Kliknij tu lub przeciągnij z góry do dołu aby odświeżyć" />
 
-            <!--        <androidx.recyclerview.widget.RecyclerView-->
-            <!--            android:id="@+id/recycler_view"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="match_parent" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/recycler_view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent" />-->
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/first"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                app:layout_constraintBottom_toTopOf="@id/second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="1">
 
                 <LinearLayout
-                    android:layout_width="135dp"
-                    android:layout_height="135dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:id="@+id/ogloszenia_layout"
                     android:background="@color/colorAccent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/aktualnosci_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/ogloszeniaIV"
@@ -69,13 +80,17 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="135dp"
-                    android:layout_height="135dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:id="@+id/aktualnosci_layout"
                     android:background="@color/colorAccent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ogloszenia_layout"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/aktualnosciIV"
@@ -96,20 +111,29 @@
                         android:textSize="20sp"
                         android:text="Aktualności" />
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/second"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                app:layout_constraintBottom_toTopOf="@+id/third"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/first"
+                app:layout_constraintVertical_weight="1">
 
                 <LinearLayout
-                    android:layout_width="135dp"
-                    android:layout_height="135dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/intencje_layout"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/parafia_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/intencjeIV"
@@ -132,12 +156,16 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="135dp"
-                    android:layout_height="135dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/parafia_layout"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/intencje_layout"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/parafiaIV"
@@ -158,20 +186,29 @@
                         android:textSize="20sp"
                         android:text="Parafia" />
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/third"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toTopOf="@id/fourth"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second"
+                app:layout_constraintVertical_weight="1">
 
                 <LinearLayout
-                    android:layout_width="135dp"
-                    android:layout_height="135dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/sakramenty_layout"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/kontakt_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/sakramentyIV"
@@ -194,12 +231,16 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="135dp"
-                    android:layout_height="135dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@color/colorAccent"
                     android:layout_margin="10dp"
                     android:id="@+id/kontakt_layout"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/sakramenty_layout"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/kontaktIV"
@@ -220,8 +261,51 @@
                         android:textSize="20sp"
                         android:text="Kontakt" />
                 </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fourth"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/third"
+                app:layout_constraintVertical_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/dotacja_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorAccent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/dotacjaIV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:contentDescription="Złóż ofiarę"
+                        android:src="@drawable/ic_attach_money" />
+
+                    <TextView
+                        android:id="@+id/dotacjaTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="Złóż ofiarę"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

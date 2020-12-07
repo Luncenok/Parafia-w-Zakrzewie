@@ -2,6 +2,7 @@ package pl.godziszewo.kosciol.ui.main
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
@@ -71,6 +72,7 @@ class MainFragment : Fragment() {
         val parafiaLayout = root.findViewById<LinearLayout>(R.id.parafia_layout)
         val sakramentyLayout = root.findViewById<LinearLayout>(R.id.sakramenty_layout)
         val kontaktLayout = root.findViewById<LinearLayout>(R.id.kontakt_layout)
+        val dotacjaLayout = root.findViewById<LinearLayout>(R.id.dotacja_layout)
 
         ogloszeniaLayout.setOnClickListener {
             intent.putExtra("kategoria", "Ogłoszenia")
@@ -95,6 +97,9 @@ class MainFragment : Fragment() {
         kontaktLayout.setOnClickListener {
             intent.putExtra("kategoria", "Kontakt")
             startActivity(intent)
+        }
+        dotacjaLayout.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://parafia.ofiara.org/donatio?r=jGGhfaF7LDbW227m7lI8v73DHRi1")))
         }
 
 

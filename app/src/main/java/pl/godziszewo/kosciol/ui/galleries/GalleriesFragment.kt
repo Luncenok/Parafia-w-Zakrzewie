@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +32,7 @@ class GalleriesFragment : Fragment() {
         val root = inflater.inflate(R.layout.galleries_fragment, container, false)
 
         val req = RequestConfiguration.Builder()
-            .setTestDeviceIds(listOf("2A1965EA634A02D70CBC9CF1070DCF26")).build()
+            .setTestDeviceIds(listOf("6BAFF71222ABE5046B2841CF75F38B42")).build()
         MobileAds.setRequestConfiguration(req)
         MobileAds.initialize(context) {}
         mAdView = root.findViewById(R.id.adView)
@@ -51,7 +50,7 @@ class GalleriesFragment : Fragment() {
         }
         viewModel.dwnldcontent()
 
-        viewModel.allGalleryInfo.observe(viewLifecycleOwner, Observer {
+        viewModel.allGalleryInfo.observe(viewLifecycleOwner, {
             galleriesRecyclerAdapter?.setItems(it)
             Timber.e(it.toString())
         })

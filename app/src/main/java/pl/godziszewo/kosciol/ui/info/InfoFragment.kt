@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -32,7 +31,7 @@ class InfoFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         val req = RequestConfiguration.Builder()
-            .setTestDeviceIds(listOf("2A1965EA634A02D70CBC9CF1070DCF26")).build()
+            .setTestDeviceIds(listOf("6BAFF71222ABE5046B2841CF75F38B42")).build()
         MobileAds.setRequestConfiguration(req)
         MobileAds.initialize(context) {}
         mAdView = root.findViewById(R.id.adView)
@@ -49,7 +48,7 @@ class InfoFragment : Fragment() {
         val kategoria = activity?.intent?.getStringExtra("kategoria")
         activity?.title = if (kategoria == "Historia parafii") "Parafia" else kategoria
         var dod = ""
-        viewModel.allSpanstr.observe(viewLifecycleOwner, Observer {
+        viewModel.allSpanstr.observe(viewLifecycleOwner, {
             it.forEach { biblia ->
                 if (kategoria == "Historia parafii") {
                     if (biblia.ksiega == kategoria || biblia.ksiega == "Cmentarz" || biblia.ksiega == "Nasz patron")
