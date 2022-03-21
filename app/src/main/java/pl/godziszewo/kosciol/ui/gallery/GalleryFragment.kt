@@ -51,7 +51,7 @@ class GalleryFragment : Fragment() {
         val galleryRecyclerAdapter = context?.let { GalleryRecyclerAdapter(it) }
 
         val link = activity?.intent?.getIntExtra("link", 0)
-        viewModel.allGalleryInfo.observe(viewLifecycleOwner, { list ->
+        viewModel.allGalleryInfo.observe(viewLifecycleOwner) { list ->
             list.forEach { gi ->
                 if (gi.id == link) {
                     val linki = gi.linki.split(",")
@@ -59,7 +59,7 @@ class GalleryFragment : Fragment() {
                     Timber.e("ustawniono")
                 }
             }
-        })
+        }
 
         recyclerView.apply {
             adapter = galleryRecyclerAdapter

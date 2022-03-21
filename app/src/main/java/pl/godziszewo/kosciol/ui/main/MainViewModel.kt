@@ -1,6 +1,7 @@
 package pl.godziszewo.kosciol.ui.main
 
 import android.app.Application
+import android.net.TrafficStats
 import android.text.SpannableStringBuilder
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -42,10 +43,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun dwnldAktualnosci(refreshLayout: SwipeRefreshLayout) {
         Timber.i("Aktualnosci sa pobierane")
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 val listaLinkow = ArrayList<String>()
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10001)
                 val doc = Jsoup.connect("$url/aktualnosci").get().body()
                 var content: String
                 doc.select("h3 a:not(page-link)").forEach { elem ->
@@ -81,16 +83,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
     }
 
     private fun dwnldIntencje() {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Intencje sa pobierane")
                 val listaLinkow = ArrayList<String>()
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10002)
                 val doc = Jsoup.connect("$url/intencje").get().body()
                 var content: String
                 doc.select(".content a:not(.page-link)").forEach { elem ->
@@ -125,16 +128,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
     }
 
     private fun dwnldOgloszenia() {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Ogloszenia sa pobierane")
                 val listaLinkow = ArrayList<String>()
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10003)
                 val doc = Jsoup.connect("$url/ogloszenia_duszpasterskie").get().body()
                 var content: String
                 doc.select(".content a:not(.page-link)").forEach { elem ->
@@ -169,15 +173,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
     }
 
     private fun dwnldHistoria() {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Historia sa pobierane")
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10004)
                 val doc = Jsoup.connect("$url/historia_parafii").get().body()
                 doc.select(".content").forEach { elem ->
                     listaContentu.add(elem.toString())
@@ -195,15 +200,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
     }
 
     private fun dwnldPatron() {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Patron sa pobierane")
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10005)
                 val doc = Jsoup.connect("$url/nasz_patron").get().body()
                 doc.select(".content").forEach { elem ->
                     listaContentu.add(elem.toString())
@@ -221,15 +227,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
     }
 
     private fun dwnldCmentarz() {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Cmentarz sa pobierane")
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10006)
                 val doc = Jsoup.connect("$url/cmentarz").get().body()
                 doc.select(".content").forEach { elem ->
                     listaContentu.add(elem.toString())
@@ -247,16 +254,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
 
     }
 
     private fun dwnldKontakt(refreshLayout: SwipeRefreshLayout) {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Kontakt sa pobierane")
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10007)
                 val doc = Jsoup.connect("$url/kontakt").get().body()
                 doc.select(".col-sm-5").forEach { elem ->
                     listaContentu.add(elem.toString())
@@ -276,16 +284,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
 
     }
 
     private fun dwnldSakramenty() {
         val url = "https://kazimierz.archpoznan.pl"
-        Thread(Runnable {
+        Thread {
             try {
                 Timber.i("Sakramenty sa pobierane")
                 val listaContentu = ArrayList<String>()
+                TrafficStats.setThreadStatsTag(10008)
                 val doc = Jsoup.connect("$url/sakramenty").get().body()
                 listaContentu.add(doc.select(".sacraments #sacrament1").toString())
                 listaContentu.add(doc.select(".sacraments #sacrament2").toString())
@@ -309,7 +318,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
 
     }
 
