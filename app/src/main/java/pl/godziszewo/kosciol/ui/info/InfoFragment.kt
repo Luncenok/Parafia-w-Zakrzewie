@@ -6,10 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.RequestConfiguration
 import kotlinx.android.synthetic.main.wybor_fragment.*
 import pl.godziszewo.kosciol.R
 
@@ -20,8 +16,6 @@ class InfoFragment : Fragment() {
     }
 
     private lateinit var viewModel: InfoViewModel
-    lateinit var mAdView: AdView
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,14 +23,6 @@ class InfoFragment : Fragment() {
     ): View {
         val root: View = inflater.inflate(R.layout.wybor_fragment, container, false)
         viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
-
-        val req = RequestConfiguration.Builder()
-            .setTestDeviceIds(listOf("6BAFF71222ABE5046B2841CF75F38B42")).build()
-        MobileAds.setRequestConfiguration(req)
-        MobileAds.initialize(context) {}
-        mAdView = root.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
 
         return root
     }

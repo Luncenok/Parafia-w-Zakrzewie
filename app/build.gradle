@@ -53,8 +53,6 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //snackbar
     implementation 'com.google.android.material:material:1.5.0'
-    //ads
-    implementation 'com.google.android.gms:play-services-ads:20.6.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'

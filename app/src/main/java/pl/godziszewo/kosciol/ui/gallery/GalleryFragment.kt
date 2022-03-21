@@ -8,10 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.RequestConfiguration
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.utils.TopSpacingItemDecoration
 import timber.log.Timber
@@ -24,7 +20,6 @@ class GalleryFragment : Fragment() {
 
     private lateinit var viewModel: GalleryViewModel
     private lateinit var recyclerView: RecyclerView
-    lateinit var mAdView: AdView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +27,6 @@ class GalleryFragment : Fragment() {
     ): View {
         val root = inflater.inflate(R.layout.gallery_fragment, container, false)
         viewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
-
-        val req = RequestConfiguration.Builder()
-            .setTestDeviceIds(listOf("6BAFF71222ABE5046B2841CF75F38B42")).build()
-        MobileAds.setRequestConfiguration(req)
-        MobileAds.initialize(context) {}
-        mAdView = root.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
 
         recyclerView = root.findViewById(R.id.gallery_recyclerview)
         return root
