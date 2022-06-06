@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pl.godziszewo.kosciol.R
+import pl.godziszewo.kosciol.adapter.GalleriesRecyclerAdapter
 import pl.godziszewo.kosciol.utils.TopSpacingItemDecoration
 import timber.log.Timber
 
@@ -37,17 +38,12 @@ class GalleriesFragment : Fragment() {
         }
         viewModel.dwnldcontent()
 
-        viewModel.allGalleryInfo.observe(viewLifecycleOwner, {
+        viewModel.allGalleryInfo.observe(viewLifecycleOwner) {
             galleriesRecyclerAdapter?.setItems(it)
             Timber.e(it.toString())
-        })
+        }
 
         return root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        Timber.e("onActivityCreated created")
-        super.onActivityCreated(savedInstanceState)
     }
 
 }

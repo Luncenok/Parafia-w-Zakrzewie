@@ -1,4 +1,4 @@
-package pl.godziszewo.kosciol.ui.gallery
+package pl.godziszewo.kosciol.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pl.godziszewo.kosciol.R
+import pl.godziszewo.kosciol.adapter.GalleryRecyclerAdapter
 import pl.godziszewo.kosciol.utils.TopSpacingItemDecoration
 import timber.log.Timber
 

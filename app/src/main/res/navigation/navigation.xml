@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="pl.godziszewo.kosciol.ui.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_mainFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_galleriesFragment"
+            app:destination="@id/galleriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="pl.godziszewo.kosciol.ui.info.InfoFragment"
+        android:label="wybor_fragment"
+        tools:layout="@layout/info_fragment" />
+    <fragment
+        android:id="@+id/galleriesFragment"
+        android:name="pl.godziszewo.kosciol.ui.galleries.GalleriesFragment"
+        android:label="galleries_fragment"
+        tools:layout="@layout/galleries_fragment" >
+        <action
+            android:id="@+id/action_galleriesFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="pl.godziszewo.kosciol.ui.gallery.GalleryFragment"
+        android:label="gallery_fragment"
+        tools:layout="@layout/gallery_fragment" />
+</navigation>

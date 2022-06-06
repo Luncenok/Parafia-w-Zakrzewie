@@ -1,4 +1,4 @@
-package pl.godziszewo.kosciol.ui.main
+package pl.godziszewo.kosciol.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.data.model.Biblia
-import pl.godziszewo.kosciol.ui.info.InfoActivity
 
 class HomeAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {

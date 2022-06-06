@@ -21,7 +21,7 @@ class InfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val root: View = inflater.inflate(R.layout.wybor_fragment, container, false)
+        val root: View = inflater.inflate(R.layout.info_fragment, container, false)
         viewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         return root

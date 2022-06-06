@@ -14,8 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import pl.godziszewo.kosciol.R
-import pl.godziszewo.kosciol.ui.galleries.GalleriesActivity
-import pl.godziszewo.kosciol.ui.info.InfoActivity
 import timber.log.Timber
 
 class MainFragment : Fragment() {
