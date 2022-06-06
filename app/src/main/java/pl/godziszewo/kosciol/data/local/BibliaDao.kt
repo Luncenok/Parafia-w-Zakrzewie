@@ -1,9 +1,10 @@
-package pl.godziszewo.kosciol.database
+package pl.godziszewo.kosciol.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import pl.godziszewo.kosciol.data.model.Biblia
 
 @Dao
 interface BibliaDao {

@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import pl.godziszewo.kosciol.database.AppDatabase
-import pl.godziszewo.kosciol.database.GalleryInfo
-import pl.godziszewo.kosciol.database.GalleryInfoRepository
+import pl.godziszewo.kosciol.data.local.AppDatabase
+import pl.godziszewo.kosciol.data.model.GalleryInfo
+import pl.godziszewo.kosciol.repository.GalleryInfoRepository
 
 class GalleryViewModel(application: Application) : AndroidViewModel(application) {
 

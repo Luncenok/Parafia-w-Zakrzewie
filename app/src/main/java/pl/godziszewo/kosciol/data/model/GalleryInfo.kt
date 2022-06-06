@@ -1,4 +1,4 @@
-package pl.godziszewo.kosciol.database
+package pl.godziszewo.kosciol.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

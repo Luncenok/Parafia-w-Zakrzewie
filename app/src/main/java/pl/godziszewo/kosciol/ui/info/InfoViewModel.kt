@@ -8,10 +8,9 @@ import androidx.core.text.HtmlCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
-import pl.godziszewo.kosciol.database.AppDatabase
-import pl.godziszewo.kosciol.database.Biblia
-import pl.godziszewo.kosciol.database.BibliaRepository
+import pl.godziszewo.kosciol.data.local.AppDatabase
+import pl.godziszewo.kosciol.data.model.Biblia
+import pl.godziszewo.kosciol.repository.BibliaRepository
 
 class InfoViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: BibliaRepository

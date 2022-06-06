@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import pl.godziszewo.kosciol.R
-import pl.godziszewo.kosciol.database.GalleryInfo
+import pl.godziszewo.kosciol.data.model.GalleryInfo
 import pl.godziszewo.kosciol.ui.gallery.GalleryActivity
 
 class GalleriesRecyclerAdapter internal constructor(context: Context) :

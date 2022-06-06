@@ -10,9 +10,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import pl.godziszewo.kosciol.database.AppDatabase
-import pl.godziszewo.kosciol.database.Biblia
-import pl.godziszewo.kosciol.database.BibliaRepository
+import pl.godziszewo.kosciol.data.local.AppDatabase
+import pl.godziszewo.kosciol.data.model.Biblia
+import pl.godziszewo.kosciol.repository.BibliaRepository
 import timber.log.Timber
 import java.net.UnknownHostException
 

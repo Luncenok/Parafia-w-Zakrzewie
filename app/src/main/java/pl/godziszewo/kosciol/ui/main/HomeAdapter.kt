@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pl.godziszewo.kosciol.R
-import pl.godziszewo.kosciol.database.Biblia
+import pl.godziszewo.kosciol.data.model.Biblia
 import pl.godziszewo.kosciol.ui.info.InfoActivity
 
 class HomeAdapter internal constructor(context: Context) :

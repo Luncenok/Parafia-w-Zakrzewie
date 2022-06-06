@@ -1,6 +1,8 @@
-package pl.godziszewo.kosciol.database
+package pl.godziszewo.kosciol.repository
 
 import androidx.lifecycle.LiveData
+import pl.godziszewo.kosciol.data.local.BibliaDao
+import pl.godziszewo.kosciol.data.model.Biblia
 
 class BibliaRepository(private val bibliaDao: BibliaDao) {
     val allBiblia: LiveData<List<Biblia>> = bibliaDao.getAll()

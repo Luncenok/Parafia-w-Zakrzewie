@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import pl.godziszewo.kosciol.database.AppDatabase
-import pl.godziszewo.kosciol.database.GalleryInfo
-import pl.godziszewo.kosciol.database.GalleryInfoRepository
+import pl.godziszewo.kosciol.data.local.AppDatabase
+import pl.godziszewo.kosciol.data.model.GalleryInfo
+import pl.godziszewo.kosciol.repository.GalleryInfoRepository
 import timber.log.Timber
 import java.net.UnknownHostException
 

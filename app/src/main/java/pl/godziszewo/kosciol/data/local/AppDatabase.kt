@@ -1,4 +1,4 @@
-package pl.godziszewo.kosciol.database
+package pl.godziszewo.kosciol.data.local
 
 import android.content.Context
 import androidx.room.Database
@@ -7,6 +7,8 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import pl.godziszewo.kosciol.data.model.Biblia
+import pl.godziszewo.kosciol.data.model.GalleryInfo
 
 @Database(entities = [Biblia::class, GalleryInfo::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
