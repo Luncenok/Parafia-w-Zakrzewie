@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="pl.godziszewo.kosciol">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -15,14 +16,7 @@
         android:fullBackupContent="false"
         android:theme="@style/AppTheme"
         tools:targetApi="s">
-        <activity android:name=".ui.gallery.GalleryActivity"></activity>
-        <activity android:name=".ui.galleries.GalleriesActivity" />
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7457190986528845~7872768660" />
-
-        <activity android:name=".ui.info.InfoActivity" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"

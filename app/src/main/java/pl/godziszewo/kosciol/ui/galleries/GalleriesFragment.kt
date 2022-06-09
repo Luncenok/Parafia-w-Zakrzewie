@@ -27,7 +27,7 @@ class GalleriesFragment : Fragment() {
     ): View {
         val root = inflater.inflate(R.layout.galleries_fragment, container, false)
 
-        val recyclerView: RecyclerView = root.findViewById(R.id.galleries_recyclerview)
+        val recyclerView: RecyclerView = root.findViewById(R.id.galleries_recycler)
         viewModel = ViewModelProvider(this).get(GalleriesViewModel::class.java)
         val galleriesRecyclerAdapter = context?.let { GalleriesRecyclerAdapter(it) }
         recyclerView.apply {

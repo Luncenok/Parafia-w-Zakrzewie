@@ -64,12 +64,12 @@ class MainFragment : Fragment() {
         }
 
         val intent = Intent(activity, InfoActivity::class.java)
-        val ogloszeniaLayout = root.findViewById<LinearLayout>(R.id.ogloszenia_layout)
-        val aktualnosciLayout = root.findViewById<LinearLayout>(R.id.aktualnosci_layout)
-        val intencjeLayout = root.findViewById<LinearLayout>(R.id.intencje_layout)
-        val parafiaLayout = root.findViewById<LinearLayout>(R.id.parafia_layout)
-        val sakramentyLayout = root.findViewById<LinearLayout>(R.id.sakramenty_layout)
-        val kontaktLayout = root.findViewById<LinearLayout>(R.id.kontakt_layout)
+        val ogloszeniaLayout = root.findViewById<LinearLayout>(R.id.ogloszenia_card)
+        val aktualnosciLayout = root.findViewById<LinearLayout>(R.id.aktualnosci_card)
+        val intencjeLayout = root.findViewById<LinearLayout>(R.id.intencje_card)
+        val parafiaLayout = root.findViewById<LinearLayout>(R.id.parafia_card)
+        val sakramentyLayout = root.findViewById<LinearLayout>(R.id.sakramenty_card)
+        val kontaktLayout = root.findViewById<LinearLayout>(R.id.kontakt_card)
         val dotacjaLayout = root.findViewById<LinearLayout>(R.id.dotacja_layout)
 
         ogloszeniaLayout.setOnClickListener {
