@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
+    <option name="filePathToDrawableBackgroundType">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_church_svgrepo_com.xml" value="NONE" />
+      </map>
+    </option>
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_icon.xml" value="0.182" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3115" />
         <entry key="app/src/main/res/drawable/home_element_shape.xml" value="0.134" />
+        <entry key="app/src/main/res/drawable/ic_church.xml" value="0.3115" />
+        <entry key="app/src/main/res/drawable/ic_church_svgrepo_com.xml" value="0.3115" />
+        <entry key="app/src/main/res/drawable/ic_cross.xml" value="0.3115" />
+        <entry key="app/src/main/res/drawable/ic_holy_ghost.xml" value="0.3115" />
+        <entry key="app/src/main/res/drawable/ic_icon.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3115" />
+        <entry key="app/src/main/res/drawable/vd_vector.xml" value="0.205" />
         <entry key="app/src/main/res/layout/galleries_fragment.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/layout/gallery_fragment.xml" value="0.2006340579710145" />
         <entry key="app/src/main/res/layout/wybor_fragment.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.182" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.182" />
       </map>
     </option>
   </component>
