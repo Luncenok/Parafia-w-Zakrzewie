@@ -8,12 +8,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.adapter.GalleryRecyclerAdapter
 import pl.godziszewo.kosciol.databinding.GalleriesFragmentBinding
 import pl.godziszewo.kosciol.utils.TopSpacingItemDecoration
 import timber.log.Timber
 
+@AndroidEntryPoint
 class GalleryFragment : Fragment() {
 
     private val viewModel: GalleryViewModel by viewModels()

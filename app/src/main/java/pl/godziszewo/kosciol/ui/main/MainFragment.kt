@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.databinding.MainFragmentBinding
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private val viewModel by viewModels<MainViewModel>()

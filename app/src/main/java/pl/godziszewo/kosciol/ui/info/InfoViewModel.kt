@@ -1,26 +1,24 @@
 package pl.godziszewo.kosciol.ui.info
 
-import android.app.Application
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
 import androidx.core.text.HtmlCompat
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import pl.godziszewo.kosciol.data.local.AppDatabase
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import pl.godziszewo.kosciol.data.model.Biblia
 import pl.godziszewo.kosciol.repository.BibliaRepository
+import javax.inject.Inject
 
-class InfoViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: BibliaRepository
+@HiltViewModel
+class InfoViewModel @Inject constructor(repository: BibliaRepository) : ViewModel() {
     val allBiblia: LiveData<List<Biblia>>
     val allSpanstr: LiveData<List<Biblia>>
     var listaLinkow: ArrayList<String>
     var listaContentu: ArrayList<String>
 
     init {
-        val bibliaDao = AppDatabase.getInstance(application).bibliaDao()
-        repository = BibliaRepository(bibliaDao)
         allBiblia = repository.allBiblia
         allSpanstr = repository.allBibliaPoSpanstr
         listaLinkow = ArrayList()

@@ -1,20 +1,18 @@
 package pl.godziszewo.kosciol.ui.gallery
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import pl.godziszewo.kosciol.data.local.AppDatabase
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import pl.godziszewo.kosciol.data.model.GalleryInfo
 import pl.godziszewo.kosciol.repository.GalleryInfoRepository
+import javax.inject.Inject
 
-class GalleryViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class GalleryViewModel @Inject constructor(repository: GalleryInfoRepository) : ViewModel() {
 
-    private val repository: GalleryInfoRepository
     val allGalleryInfo: LiveData<List<GalleryInfo>>
 
     init {
-        val galleryInfoDao = AppDatabase.getInstance(application).galleryInfoDao()
-        repository = GalleryInfoRepository(galleryInfoDao)
         allGalleryInfo = repository.allGalleryInfo
     }
 

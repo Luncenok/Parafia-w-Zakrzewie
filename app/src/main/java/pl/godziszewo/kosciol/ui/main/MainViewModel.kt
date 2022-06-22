@@ -1,32 +1,25 @@
 package pl.godziszewo.kosciol.ui.main
 
-import android.app.Application
 import android.net.TrafficStats
 import android.text.SpannableStringBuilder
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import pl.godziszewo.kosciol.data.local.AppDatabase
 import pl.godziszewo.kosciol.data.model.Biblia
 import pl.godziszewo.kosciol.repository.BibliaRepository
 import timber.log.Timber
 import java.net.UnknownHostException
+import javax.inject.Inject
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: BibliaRepository
-    val allBiblia: LiveData<List<Biblia>>
-    val allBibliaPoRozdziale: LiveData<List<Biblia>>
-
-    init {
-        val bibliaDao = AppDatabase.getInstance(application).bibliaDao()
-        repository = BibliaRepository(bibliaDao)
-        allBiblia = repository.allBiblia
-        allBibliaPoRozdziale = repository.allBibliaPoRozdziale
-    }
+@HiltViewModel
+class MainViewModel @Inject constructor(private val repository: BibliaRepository) : ViewModel() {
+    val allBiblia: LiveData<List<Biblia>> = repository.allBiblia
+    val allBibliaPoRozdziale: LiveData<List<Biblia>> = repository.allBibliaPoRozdziale
 
     fun dwnldcontent(refreshLayout: SwipeRefreshLayout) {
         refreshLayout.isRefreshing = true

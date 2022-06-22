@@ -4,31 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.adapter.GalleriesRecyclerAdapter
+import pl.godziszewo.kosciol.databinding.GalleriesFragmentBinding
 import pl.godziszewo.kosciol.utils.TopSpacingItemDecoration
 import timber.log.Timber
 
+@AndroidEntryPoint
 class GalleriesFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = GalleriesFragment()
-    }
-
-    private lateinit var viewModel: GalleriesViewModel
+    private val viewModel: GalleriesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val root = inflater.inflate(R.layout.galleries_fragment, container, false)
+        val binding: GalleriesFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.galleries_fragment, container, false)
 
-        val recyclerView: RecyclerView = root.findViewById(R.id.galleries_recycler)
-        viewModel = ViewModelProvider(this).get(GalleriesViewModel::class.java)
+        val recyclerView: RecyclerView = binding.galleriesRecycler
         val galleriesRecyclerAdapter = context?.let { GalleriesRecyclerAdapter() }
         recyclerView.apply {
             adapter = galleriesRecyclerAdapter
@@ -43,7 +42,7 @@ class GalleriesFragment : Fragment() {
             Timber.e(it.toString())
         }
 
-        return root
+        return binding.root
     }
 
 }

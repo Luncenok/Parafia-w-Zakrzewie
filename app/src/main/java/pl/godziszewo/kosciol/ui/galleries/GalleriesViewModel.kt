@@ -1,27 +1,21 @@
 package pl.godziszewo.kosciol.ui.galleries
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import pl.godziszewo.kosciol.data.local.AppDatabase
 import pl.godziszewo.kosciol.data.model.GalleryInfo
 import pl.godziszewo.kosciol.repository.GalleryInfoRepository
 import timber.log.Timber
 import java.net.UnknownHostException
+import javax.inject.Inject
 
-class GalleriesViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class GalleriesViewModel @Inject constructor(private val repository: GalleryInfoRepository) : ViewModel() {
 
-    private val repository: GalleryInfoRepository
-    val allGalleryInfo: LiveData<List<GalleryInfo>>
-
-    init {
-        val galleryInfoDao = AppDatabase.getInstance(application).galleryInfoDao()
-        repository = GalleryInfoRepository(galleryInfoDao)
-        allGalleryInfo = repository.allGalleryInfo
-    }
+    val allGalleryInfo: LiveData<List<GalleryInfo>> = repository.allGalleryInfo
 
     fun dwnldcontent() {
         Timber.i("GalleryInfo sa pobierane")
