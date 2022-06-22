@@ -29,7 +29,7 @@ class GalleriesFragment : Fragment() {
 
         val recyclerView: RecyclerView = root.findViewById(R.id.galleries_recycler)
         viewModel = ViewModelProvider(this).get(GalleriesViewModel::class.java)
-        val galleriesRecyclerAdapter = context?.let { GalleriesRecyclerAdapter(it) }
+        val galleriesRecyclerAdapter = context?.let { GalleriesRecyclerAdapter() }
         recyclerView.apply {
             adapter = galleriesRecyclerAdapter
             layoutManager = LinearLayoutManager(context)

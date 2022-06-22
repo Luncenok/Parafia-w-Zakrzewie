@@ -4,7 +4,7 @@
         android:radius="20dp"
         />
     <solid
-        android:color="@color/colorPrimaryLight"
+        android:color="?attr/colorPrimary"
         />
     <stroke
         android:color="#e1e1e1"

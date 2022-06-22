@@ -1,7 +1,5 @@
 package pl.godziszewo.kosciol.adapter
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,11 +12,10 @@ import com.bumptech.glide.request.RequestOptions
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.data.model.GalleryInfo
 
-class GalleriesRecyclerAdapter internal constructor(context: Context) :
+class GalleriesRecyclerAdapter :
     RecyclerView.Adapter<GalleriesRecyclerAdapter.ViewHolder>() {
 
     private var items = emptyList<GalleryInfo>()
-    private var mContext = context
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var galleryImage: ImageView = itemView.findViewById(R.id.galleries_image)
@@ -30,9 +27,9 @@ class GalleriesRecyclerAdapter internal constructor(context: Context) :
             galleryTitle.text = galleryInfo.title
             galleryDate.text = galleryInfo.date
             galleryContainer.setOnClickListener {
-                val intent = Intent(mContext, GalleryActivity::class.java)
-                intent.putExtra("link", galleryInfo.id)
-                mContext.startActivity(intent)
+//                val intent = Intent(mContext, GalleryActivity::class.java)
+//                intent.putExtra("link", galleryInfo.id)
+//                mContext.startActivity(intent)
             }
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_holy_ghost)

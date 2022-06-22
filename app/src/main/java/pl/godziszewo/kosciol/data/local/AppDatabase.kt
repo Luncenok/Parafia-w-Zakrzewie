@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import pl.godziszewo.kosciol.data.model.Biblia
 import pl.godziszewo.kosciol.data.model.GalleryInfo
 
-@Database(entities = [Biblia::class, GalleryInfo::class], version = 1)
+@Database(entities = [Biblia::class, GalleryInfo::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun bibliaDao(): BibliaDao
@@ -18,11 +18,11 @@ abstract class AppDatabase : RoomDatabase() {
 
     private class WordDatabaseCallback(
         private val scope: CoroutineScope
-    ) : RoomDatabase.Callback() {
+    ) : Callback() {
 
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
-            INSTANCE?.let { database ->
+            INSTANCE?.let {
                 scope.launch {
 //                    val bibliaDao = database.bibliaDao()
 //                    val galleryInfoDao = database.galleryInfoDao()
