@@ -22,7 +22,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val allBibliaPoRozdziale: LiveData<List<Biblia>>
 
     init {
-        val bibliaDao = AppDatabase.getDatabase(application, viewModelScope).bibliaDao()
+        val bibliaDao = AppDatabase.getInstance(application).bibliaDao()
         repository = BibliaRepository(bibliaDao)
         allBiblia = repository.allBiblia
         allBibliaPoRozdziale = repository.allBibliaPoRozdziale

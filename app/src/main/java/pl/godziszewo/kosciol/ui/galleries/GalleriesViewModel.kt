@@ -18,7 +18,7 @@ class GalleriesViewModel(application: Application) : AndroidViewModel(applicatio
     val allGalleryInfo: LiveData<List<GalleryInfo>>
 
     init {
-        val galleryInfoDao = AppDatabase.getDatabase(application, viewModelScope).galleryInfoDao()
+        val galleryInfoDao = AppDatabase.getInstance(application).galleryInfoDao()
         repository = GalleryInfoRepository(galleryInfoDao)
         allGalleryInfo = repository.allGalleryInfo
     }
@@ -26,7 +26,7 @@ class GalleriesViewModel(application: Application) : AndroidViewModel(applicatio
     fun dwnldcontent() {
         Timber.i("GalleryInfo sa pobierane")
         val url = "https://kazimierz.archpoznan.pl/galeria_zdjec"
-        Thread(Runnable {
+        Thread {
             try {
                 val doc = Jsoup.connect(url).get().body()
                 deleteAll()
@@ -64,7 +64,7 @@ class GalleriesViewModel(application: Application) : AndroidViewModel(applicatio
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }).start()
+        }.start()
     }
 
     private fun insert(galleryInfo: GalleryInfo) = viewModelScope.launch {

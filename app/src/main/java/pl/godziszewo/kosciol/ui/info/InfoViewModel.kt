@@ -7,7 +7,6 @@ import android.text.Spanned
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
 import pl.godziszewo.kosciol.data.local.AppDatabase
 import pl.godziszewo.kosciol.data.model.Biblia
 import pl.godziszewo.kosciol.repository.BibliaRepository
@@ -20,7 +19,7 @@ class InfoViewModel(application: Application) : AndroidViewModel(application) {
     var listaContentu: ArrayList<String>
 
     init {
-        val bibliaDao = AppDatabase.getDatabase(application, viewModelScope).bibliaDao()
+        val bibliaDao = AppDatabase.getInstance(application).bibliaDao()
         repository = BibliaRepository(bibliaDao)
         allBiblia = repository.allBiblia
         allSpanstr = repository.allBibliaPoSpanstr
