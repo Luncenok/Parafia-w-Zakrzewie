@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
         )
 
         val swipe = binding.mainSwipe
-        val odswiezBtn = binding.mainBtnRefresh
+//        val odswiezBtn = binding.mainBtnRefresh
 
         viewModel.dwnldcontent(swipe)
 
@@ -41,10 +41,10 @@ class MainFragment : Fragment() {
         swipe.setOnRefreshListener {
             viewModel.dwnldcontent(swipe)
         }
-        odswiezBtn.setOnClickListener {
-            swipe.isRefreshing = true
-            viewModel.dwnldcontent(swipe)
-        }
+//        odswiezBtn.setOnClickListener {
+//            swipe.isRefreshing = true
+//            viewModel.dwnldcontent(swipe)
+//        }
 
 
         return binding.root

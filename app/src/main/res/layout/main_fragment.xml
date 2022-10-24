@@ -15,15 +15,33 @@
             android:orientation="vertical"
             tools:context=".ui.main.MainFragment">
 
-            <Button
-                android:id="@+id/main_btn_refresh"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+            <!--            <Button-->
+            <!--                android:id="@+id/main_btn_refresh"-->
+            <!--                style="@style/Widget.Material3.Button.OutlinedButton"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:text="@string/click_or_swipe"-->
+            <!--                android:textSize="15sp" />-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/home_image_cardview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/click_or_swipe"
-                android:textSize="15sp" />
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="15dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/oltarz"
+                    app:srcCompat="@drawable/glowne" />
+            </androidx.cardview.widget.CardView>
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,8 +67,8 @@
                         android:layout_margin="10dp"
                         app:cardBackgroundColor="@color/pink"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/ogloszenia_card"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <LinearLayout
@@ -86,8 +104,8 @@
                         android:layout_margin="10dp"
                         app:cardBackgroundColor="@color/pink"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/aktualnosci_card"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/aktualnosci_card"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <LinearLayout
