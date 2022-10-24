@@ -4,16 +4,16 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2022 . All rights reserved.
-  ~  * Last modified 10/24/22, 7:12 PM
+  ~  * Last modified 10/24/22, 11:50 PM
   ~  */
   -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/main_swipe"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/home_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -59,216 +59,246 @@
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/row_first"
+                    android:id="@+id/home_first_row"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintBottom_toTopOf="@id/row_second"
+                    app:layout_constraintBottom_toTopOf="@id/home_second_row"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/aktualnosci_card"
+                        android:id="@+id/home_card_aktualnosci"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_parafia"
                         app:cardBackgroundColor="@color/pink"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/ogloszenia_card"
+                        app:strokeWidth="0dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/aktualnosciTV"
+                            android:id="@+id/home_text_aktualnosci"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="@string/aktualnosci"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp" />
-                        <!--app:drawableTopCompat="@drawable/ic_link"-->
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/bell_solid" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/ogloszenia_card"
+                        android:id="@+id/home_card_parafia"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintStart_toEndOf="@id/home_card_aktualnosci"
                         app:cardBackgroundColor="@color/pink"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/aktualnosci_card"
+                        app:strokeWidth="0dp"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/ogloszeniaTV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/ogloszenia"
-                            android:textColor="@color/white_pink"
-                            android:textSize="20sp" />
-                        <!--app:drawableTopCompat="@drawable/ic_list"-->
-                    </com.google.android.material.card.MaterialCardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/row_second"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/third"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/row_first"
-                    app:layout_constraintVertical_weight="1">
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/intencje_card"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_margin="10dp"
-                        app:cardBackgroundColor="@color/pink"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/parafia_card"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/intencjeTV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/intencje"
-                            android:textColor="@color/white_pink"
-                            android:textSize="20sp" />
-                        <!--app:drawableTopCompat="@drawable/ic_cross"-->
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/parafia_card"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_margin="10dp"
-                        app:cardBackgroundColor="@color/pink"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/intencje_card"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/parafiaTV"
+                            android:id="@+id/home_text_parafia"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="@string/parafia"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp" />
-                        <!--app:drawableTopCompat="@drawable/ic_church"-->
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/church_solid" />
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/third"
+                    android:id="@+id/home_second_row"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintBottom_toTopOf="@id/fourth"
+                    app:layout_constraintBottom_toTopOf="@+id/home_third_row"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/row_second"
+                    app:layout_constraintTop_toBottomOf="@id/home_first_row"
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/sakramenty_card"
+                        android:id="@+id/home_card_msze"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_spowiedz"
                         app:cardBackgroundColor="@color/pink"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/kontakt_card"
+                        app:strokeWidth="0dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/sakramentyTV"
+                            android:id="@+id/home_text_msze"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/photos"
+                            android:text="@string/msze"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp" />
-                        <!--app:drawableTopCompat="@drawable/ic_holy_ghost"-->
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/dove_solid" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/kontakt_card"
+                        android:id="@+id/home_card_spowiedz"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintStart_toEndOf="@id/home_card_msze"
                         app:cardBackgroundColor="@color/pink"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/sakramenty_card"
+                        app:strokeWidth="0dp"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/kontaktTV"
+                            android:id="@+id/home_text_spowiedz"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/contact"
+                            android:text="@string/spowiedz"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp" />
-                        <!--app:drawableTopCompat="@drawable/ic_letter"-->
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/cross_solid" />
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/fourth"
+                    android:id="@+id/home_third_row"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@id/home_fourth_row"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/home_second_row"
+                    app:layout_constraintVertical_weight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/home_card_intencje"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_ogloszenia"
+                        app:cardBackgroundColor="@color/pink"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:strokeWidth="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/home_text_intencje"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/intencje"
+                            android:textColor="@color/white_pink"
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/person_praying_solid" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/home_card_ogloszenia"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintStart_toEndOf="@id/home_card_intencje"
+                        app:cardBackgroundColor="@color/pink"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:strokeWidth="0dp"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/home_text_ogloszenia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/ogloszenia"
+                            android:textColor="@color/white_pink"
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/list_solid" />
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/home_fourth_row"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/third"
+                    app:layout_constraintTop_toBottomOf="@id/home_third_row"
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/dotacja_layout"
+                        android:id="@+id/home_card_cmentarz"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_kontakt"
+                        app:cardBackgroundColor="@color/pink"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:strokeWidth="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/home_text_cmentarz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/cmentarz"
+                            android:textColor="@color/white_pink"
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/place_of_worship_solid" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/home_card_kontakt"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
                         app:cardBackgroundColor="@color/pink"
+                        app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintStart_toEndOf="@id/home_card_cmentarz"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeWidth="0dp">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            tools:ignore="UseCompoundDrawables"> <!--not possible-->
-
-                            <ImageView
-                                android:id="@+id/dotacjaIV"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="30dp"
-                                android:contentDescription="@string/donate"
-                                android:src="@drawable/person_praying_solid" />
-
-                            <TextView
-                                android:id="@+id/dotacjaTV"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="20dp"
-                                android:text="@string/donate"
-                                android:textColor="@color/white_pink"
-                                android:textSize="20sp" />
-                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/home_text_kontakt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/kontakt"
+                            android:textColor="@color/white_pink"
+                            android:textSize="20sp"
+                            app:drawableTint="@color/white_pink"
+                            app:drawableTopCompat="@drawable/envelope_solid" />
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

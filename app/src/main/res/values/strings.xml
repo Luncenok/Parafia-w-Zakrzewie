@@ -2,7 +2,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2022 . All rights reserved.
-  ~  * Last modified 10/24/22, 6:30 PM
+  ~  * Last modified 10/24/22, 11:44 PM
   ~  */
   -->
 
@@ -21,4 +21,8 @@
     <string name="contact">Kontakt</string>
     <string name="donate">Złóż ofiarę</string>
     <string name="oltarz">Ołtarz</string>
+    <string name="msze">Msze święte</string>
+    <string name="spowiedz">Spowiedź</string>
+    <string name="cmentarz">Cmentarz</string>
+    <string name="kontakt">Kontakt</string>
 </resources>

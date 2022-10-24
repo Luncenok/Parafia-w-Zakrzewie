@@ -2,13 +2,13 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2022 . All rights reserved.
-  ~  * Last modified 10/24/22, 7:12 PM
+  ~  * Last modified 10/24/22, 11:15 PM
   ~  */
   -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="448dp"
-    android:height="512dp"
+    android:width="26dp"
+    android:height="30dp"
     android:viewportWidth="448"
     android:viewportHeight="512">
     <path

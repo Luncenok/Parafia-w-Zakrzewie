@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2022 . All rights reserved.
- *  * Last modified 10/24/22, 6:30 PM
+ *  * Last modified 10/24/22, 11:48 PM
  *
  */
 
@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
             getString(R.string.preference_file_key), Context.MODE_PRIVATE
         )
 
-        val swipe = binding.mainSwipe
+        val swipe = binding.homeSwipe
 //        val odswiezBtn = binding.mainBtnRefresh
 
         viewModel.dwnldcontent(swipe)
