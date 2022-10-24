@@ -1,5 +1,13 @@
 #!/usr/bin/env sh
 
+#
+# /**
+#  * Created by Mateusz Idziejczak on 05.03.2022
+#  * Copyright (c) 2022 . All rights reserved.
+#  * Last modified 3/21/22, 6:48 PM
+#  */
+#
+
 ##############################################################################
 ##
 ##  Gradle start up script for UN*X

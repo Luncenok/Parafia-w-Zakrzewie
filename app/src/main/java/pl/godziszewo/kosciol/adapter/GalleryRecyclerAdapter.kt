@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Mateusz Idziejczak on 05.03.2022
+ *  * Copyright (c) 2022 . All rights reserved.
+ *  * Last modified 10/24/22, 7:10 PM
+ *
+ */
+
 package pl.godziszewo.kosciol.adapter
 
 import android.content.Context
@@ -21,8 +29,8 @@ class GalleryRecyclerAdapter internal constructor(context: Context) :
 
         fun bind(link: String) {
             val requestOptions = RequestOptions()
-                .placeholder(R.drawable.ic_holy_ghost)
-                .error(R.drawable.ic_holy_ghost)
+                .placeholder(R.drawable.dove_solid)
+                .error(R.drawable.dove_solid)
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
                 .load(link)

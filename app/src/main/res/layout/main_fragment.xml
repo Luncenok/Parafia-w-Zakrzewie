@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--
+  ~ /**
+  ~  * Created by Mateusz Idziejczak on 05.03.2022
+  ~  * Copyright (c) 2022 . All rights reserved.
+  ~  * Last modified 10/24/22, 7:12 PM
+  ~  */
+  -->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -78,8 +86,8 @@
                             android:layout_gravity="center"
                             android:text="@string/aktualnosci"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp"
-                            app:drawableTopCompat="@drawable/ic_link" />
+                            android:textSize="20sp" />
+                        <!--app:drawableTopCompat="@drawable/ic_link"-->
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -100,8 +108,8 @@
                             android:layout_gravity="center"
                             android:text="@string/ogloszenia"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp"
-                            app:drawableTopCompat="@drawable/ic_list" />
+                            android:textSize="20sp" />
+                        <!--app:drawableTopCompat="@drawable/ic_list"-->
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,8 +141,8 @@
                             android:layout_gravity="center"
                             android:text="@string/intencje"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp"
-                            app:drawableTopCompat="@drawable/ic_cross" />
+                            android:textSize="20sp" />
+                        <!--app:drawableTopCompat="@drawable/ic_cross"-->
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -155,8 +163,8 @@
                             android:layout_gravity="center"
                             android:text="@string/parafia"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp"
-                            app:drawableTopCompat="@drawable/ic_church" />
+                            android:textSize="20sp" />
+                        <!--app:drawableTopCompat="@drawable/ic_church"-->
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -188,8 +196,8 @@
                             android:layout_gravity="center"
                             android:text="@string/photos"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp"
-                            app:drawableTopCompat="@drawable/ic_holy_ghost" />
+                            android:textSize="20sp" />
+                        <!--app:drawableTopCompat="@drawable/ic_holy_ghost"-->
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -210,8 +218,8 @@
                             android:layout_gravity="center"
                             android:text="@string/contact"
                             android:textColor="@color/white_pink"
-                            android:textSize="20sp"
-                            app:drawableTopCompat="@drawable/ic_letter" />
+                            android:textSize="20sp" />
+                        <!--app:drawableTopCompat="@drawable/ic_letter"-->
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,7 +257,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:contentDescription="@string/donate"
-                                android:src="@drawable/ic_attach_money" />
+                                android:src="@drawable/person_praying_solid" />
 
                             <TextView
                                 android:id="@+id/dotacjaTV"

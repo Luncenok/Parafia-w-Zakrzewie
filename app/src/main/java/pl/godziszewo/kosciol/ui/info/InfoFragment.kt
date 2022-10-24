@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Mateusz Idziejczak on 05.03.2022
+ *  * Copyright (c) 2022 . All rights reserved.
+ *  * Last modified 10/24/22, 6:30 PM
+ *
+ */
+
 package pl.godziszewo.kosciol.ui.info
 
 import android.os.Bundle
@@ -20,7 +28,8 @@ class InfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: InfoFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.info_fragment, container, false)
+        val binding: InfoFragmentBinding =
+            DataBindingUtil.inflate(inflater, R.layout.info_fragment, container, false)
 
         val kategoria = activity?.intent?.getStringExtra("kategoria")
         activity?.title = if (kategoria == "Historia parafii") "Parafia" else kategoria
