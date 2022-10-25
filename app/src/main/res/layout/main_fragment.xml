@@ -4,7 +4,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2022 . All rights reserved.
-  ~  * Last modified 10/24/22, 11:50 PM
+  ~  * Last modified 10/25/22, 12:10 PM
   ~  */
   -->
 
@@ -176,7 +176,7 @@
                             android:textColor="@color/white_pink"
                             android:textSize="20sp"
                             app:drawableTint="@color/white_pink"
-                            app:drawableTopCompat="@drawable/cross_solid" />
+                            app:drawableTopCompat="@drawable/person_praying_solid" />
                     </com.google.android.material.card.MaterialCardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -212,7 +212,7 @@
                             android:textColor="@color/white_pink"
                             android:textSize="20sp"
                             app:drawableTint="@color/white_pink"
-                            app:drawableTopCompat="@drawable/person_praying_solid" />
+                            app:drawableTopCompat="@drawable/hands_praying_solid" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -273,7 +273,7 @@
                             android:textColor="@color/white_pink"
                             android:textSize="20sp"
                             app:drawableTint="@color/white_pink"
-                            app:drawableTopCompat="@drawable/place_of_worship_solid" />
+                            app:drawableTopCompat="@drawable/cross_solid" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
