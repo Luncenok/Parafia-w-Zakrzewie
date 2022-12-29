@@ -2,13 +2,12 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2022 . All rights reserved.
- *  * Last modified 10/24/22, 11:48 PM
+ *  * Last modified 12/29/22, 3:23 PM
  *
  */
 
 package pl.godziszewo.kosciol.ui.main
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +18,8 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.databinding.MainFragmentBinding
+import pl.godziszewo.kosciol.repository.PreferencesRepository
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -26,33 +27,27 @@ class MainFragment : Fragment() {
     private val viewModel by viewModels<MainViewModel>()
     private lateinit var binding: MainFragmentBinding
 
+    @Inject
+    lateinit var prefRepository: PreferencesRepository
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
 
-        val sharedPref = activity?.getSharedPreferences(
-            getString(R.string.preference_file_key), Context.MODE_PRIVATE
-        )
-
         val swipe = binding.homeSwipe
-//        val odswiezBtn = binding.mainBtnRefresh
 
         viewModel.dwnldcontent(swipe)
 
-        if (sharedPref!!.getBoolean(getString(R.string.first_app_use), true)) {
+        if (prefRepository.isFirstUse) {
             viewModel.dwnldcontent(swipe)
-            sharedPref.edit().putBoolean(getString(R.string.first_app_use), false).apply()
+            prefRepository.isFirstUse = false
         }
 
         swipe.setOnRefreshListener {
             viewModel.dwnldcontent(swipe)
         }
-//        odswiezBtn.setOnClickListener {
-//            swipe.isRefreshing = true
-//            viewModel.dwnldcontent(swipe)
-//        }
 
 
         return binding.root
