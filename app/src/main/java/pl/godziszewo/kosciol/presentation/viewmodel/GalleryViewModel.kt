@@ -2,11 +2,11 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:08 PM
+ *  * Last modified 1/3/23, 9:59 PM
  *
  */
 
-package pl.godziszewo.kosciol.kosciolui.ui.gallery
+package pl.godziszewo.kosciol.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

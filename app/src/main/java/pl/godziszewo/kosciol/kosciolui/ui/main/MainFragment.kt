@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:10 PM
+ *  * Last modified 1/3/23, 9:59 PM
  *
  */
 
@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.data.PreferencesRepository
 import pl.godziszewo.kosciol.databinding.MainFragmentBinding
+import pl.godziszewo.kosciol.presentation.viewmodel.MainViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint

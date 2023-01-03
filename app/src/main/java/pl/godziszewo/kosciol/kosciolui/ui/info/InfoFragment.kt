@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:08 PM
+ *  * Last modified 1/3/23, 9:59 PM
  *
  */
 
@@ -18,6 +18,7 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.databinding.InfoFragmentBinding
+import pl.godziszewo.kosciol.presentation.viewmodel.InfoViewModel
 
 @AndroidEntryPoint
 class InfoFragment : Fragment() {

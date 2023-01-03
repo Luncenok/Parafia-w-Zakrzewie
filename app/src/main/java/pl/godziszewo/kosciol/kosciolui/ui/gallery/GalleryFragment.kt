@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:10 PM
+ *  * Last modified 1/3/23, 10:01 PM
  *
  */
 
@@ -19,8 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.R
 import pl.godziszewo.kosciol.databinding.GalleriesFragmentBinding
-import pl.godziszewo.kosciol.kosciolui.TopSpacingItemDecoration
-import pl.godziszewo.kosciol.kosciolui.adapter.GalleryRecyclerAdapter
+import pl.godziszewo.kosciol.presentation.viewmodel.GalleryViewModel
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -48,7 +47,6 @@ class GalleryFragment : Fragment() {
 
         binding.galleriesRecycler.apply {
             adapter = galleryRecyclerAdapter
-            addItemDecoration(TopSpacingItemDecoration(10))
             layoutManager = LinearLayoutManager(context)
         }
 
