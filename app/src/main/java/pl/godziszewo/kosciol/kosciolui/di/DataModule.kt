@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:10 PM
+ *  * Last modified 1/4/23, 7:00 PM
  *
  */
 
@@ -57,7 +57,7 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideKociolApi(retrofit: Retrofit): KosciolApi {
+    fun provideKosciolApi(retrofit: Retrofit): KosciolApi {
         return retrofit.create(KosciolApi::class.java)
     }
 
