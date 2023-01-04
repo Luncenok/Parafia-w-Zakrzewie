@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/4/23, 7:00 PM
+ *  * Last modified 1/4/23, 8:05 PM
  *
  */
 
@@ -25,7 +25,9 @@ import pl.godziszewo.kosciol.cache.BibliaDao
 import pl.godziszewo.kosciol.cache.GalleryInfoDao
 import pl.godziszewo.kosciol.data.BibliaRepository
 import pl.godziszewo.kosciol.data.GalleryInfoRepository
+import pl.godziszewo.kosciol.data.repository.KosciolRemote
 import pl.godziszewo.kosciol.remote.api.KosciolApi
+import pl.godziszewo.kosciol.remote.repository.KosciolRemoteImp
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -59,6 +61,12 @@ class DataModule {
     @Provides
     fun provideKosciolApi(retrofit: Retrofit): KosciolApi {
         return retrofit.create(KosciolApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideKosciolRemote(kosciolRemote: KosciolRemoteImp): KosciolRemote {
+        return kosciolRemote
     }
 
     @Singleton
