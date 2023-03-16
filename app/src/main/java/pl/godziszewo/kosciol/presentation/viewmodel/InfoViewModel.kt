@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 10:04 PM
+ *  * Last modified 3/10/23, 9:15 PM
  *
  */
 
@@ -15,7 +15,6 @@ import androidx.core.text.HtmlCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import pl.godziszewo.kosciol.cache.models.Biblia
 import pl.godziszewo.kosciol.data.BibliaRepository
 import javax.inject.Inject
 

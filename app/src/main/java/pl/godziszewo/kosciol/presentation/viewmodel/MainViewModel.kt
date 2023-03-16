@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 10:04 PM
+ *  * Last modified 3/10/23, 9:15 PM
  *
  */
 
@@ -18,7 +18,6 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import pl.godziszewo.kosciol.cache.models.Biblia
 import pl.godziszewo.kosciol.data.BibliaRepository
 import timber.log.Timber
 import java.net.UnknownHostException

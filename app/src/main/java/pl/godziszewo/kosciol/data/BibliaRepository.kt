@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:09 PM
+ *  * Last modified 3/10/23, 9:15 PM
  *
  */
 
@@ -10,7 +10,6 @@ package pl.godziszewo.kosciol.data
 
 import androidx.lifecycle.LiveData
 import pl.godziszewo.kosciol.cache.BibliaDao
-import pl.godziszewo.kosciol.cache.models.Biblia
 
 class BibliaRepository(private val bibliaDao: BibliaDao) {
     val allBiblia: LiveData<List<Biblia>> = bibliaDao.getAll()

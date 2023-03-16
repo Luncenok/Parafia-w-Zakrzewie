@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:56 PM
+ *  * Last modified 3/16/23, 5:40 PM
  *
  */
 
@@ -18,22 +18,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import pl.godziszewo.kosciol.R
-import pl.godziszewo.kosciol.cache.models.GalleryInfo
+import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 
 class GalleriesRecyclerAdapter :
     RecyclerView.Adapter<GalleriesRecyclerAdapter.ViewHolder>() {
 
-    private var items = emptyList<GalleryInfo>()
+    private var items = emptyList<GalleryCacheEntity>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var galleryImage: ImageView = itemView.findViewById(R.id.galleries_image)
         private var galleryTitle: TextView = itemView.findViewById(R.id.galleries_title)
         private var galleryDate: TextView = itemView.findViewById(R.id.galleries_date)
-        private var galleryContainer: ConstraintLayout = itemView.findViewById(R.id.galleries_container)
+        private var galleryContainer: ConstraintLayout =
+            itemView.findViewById(R.id.galleries_container)
 
-        fun bind(galleryInfo: GalleryInfo) {
-            galleryTitle.text = galleryInfo.title
-            galleryDate.text = galleryInfo.date
+        fun bind(galleryCacheEntity: GalleryCacheEntity) {
+            galleryTitle.text = galleryCacheEntity.title
+            galleryDate.text = galleryCacheEntity.date
             galleryContainer.setOnClickListener {
 //                val intent = Intent(mContext, GalleryActivity::class.java)
 //                intent.putExtra("link", galleryInfo.id)
@@ -44,7 +45,7 @@ class GalleriesRecyclerAdapter :
                 .error(R.drawable.dove_solid)
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(galleryInfo.photosrc)
+                .load(galleryCacheEntity.photosrc)
                 .into(galleryImage)
         }
     }
@@ -56,7 +57,7 @@ class GalleriesRecyclerAdapter :
 
     override fun getItemCount(): Int = items.size
 
-    internal fun setItems(items: List<GalleryInfo>) {
+    internal fun setItems(items: List<GalleryCacheEntity>) {
         this.items = items
         notifyDataSetChanged()
     }

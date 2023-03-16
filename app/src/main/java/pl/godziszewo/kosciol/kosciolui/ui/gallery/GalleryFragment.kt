@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 10:34 PM
+ *  * Last modified 3/10/23, 9:37 PM
  *
  */
 
@@ -31,7 +31,7 @@ class GalleryFragment : BaseFragment<GalleryFragmentBinding, GalleryViewModel>()
         val galleryRecyclerAdapter = GalleryRecyclerAdapter(requireContext())
 
         val link = activity?.intent?.getIntExtra("link", 0)
-        viewModel.allGalleryInfo.observe(viewLifecycleOwner) { list ->
+        viewModel.allGalleryCacheEntity.observe(viewLifecycleOwner) { list ->
             list.forEach { gi ->
                 if (gi.id == link) {
                     val linki = gi.linki.split(",")

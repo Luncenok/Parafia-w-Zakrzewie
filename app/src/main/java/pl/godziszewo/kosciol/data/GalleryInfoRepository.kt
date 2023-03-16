@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:09 PM
+ *  * Last modified 3/10/23, 9:37 PM
  *
  */
 
@@ -10,14 +10,14 @@ package pl.godziszewo.kosciol.data
 
 import androidx.lifecycle.LiveData
 import pl.godziszewo.kosciol.cache.GalleryInfoDao
-import pl.godziszewo.kosciol.cache.models.GalleryInfo
+import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 import javax.inject.Inject
 
 class GalleryInfoRepository @Inject constructor(private val galleryInfoDao: GalleryInfoDao) {
-    val allGalleryInfo: LiveData<List<GalleryInfo>> = galleryInfoDao.getAll()
+    val allGalleryCacheEntity: LiveData<List<GalleryCacheEntity>> = galleryInfoDao.getAll()
 
-    suspend fun insert(galleryInfo: GalleryInfo) {
-        galleryInfoDao.insert(galleryInfo)
+    suspend fun insert(galleryCacheEntity: GalleryCacheEntity) {
+        galleryInfoDao.insert(galleryCacheEntity)
     }
 
     suspend fun deleteAll() {

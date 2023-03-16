@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:10 PM
+ *  * Last modified 3/10/23, 9:37 PM
  *
  */
 
@@ -13,8 +13,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "gallery")
-data class GalleryInfo(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+data class GalleryCacheEntity(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
 
     @ColumnInfo(name = "photosrc") val photosrc: String,
     @ColumnInfo(name = "link") val link: String,

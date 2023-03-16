@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:08 PM
+ *  * Last modified 3/10/23, 9:15 PM
  *
  */
 
@@ -12,7 +12,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import pl.godziszewo.kosciol.cache.models.Biblia
 
 @Dao
 interface BibliaDao {

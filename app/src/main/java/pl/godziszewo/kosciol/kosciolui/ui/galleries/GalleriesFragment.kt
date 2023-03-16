@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 10:34 PM
+ *  * Last modified 3/10/23, 9:37 PM
  *
  */
 
@@ -38,7 +38,7 @@ class GalleriesFragment : BaseFragment<GalleriesFragmentBinding, GalleriesViewMo
 
         viewModel.dwnldcontent()
 
-        viewModel.allGalleryInfo.observe(viewLifecycleOwner) {
+        viewModel.allGalleryCacheEntity.observe(viewLifecycleOwner) {
             galleriesRecyclerAdapter?.setItems(it)
             Timber.e(it.toString())
         }
