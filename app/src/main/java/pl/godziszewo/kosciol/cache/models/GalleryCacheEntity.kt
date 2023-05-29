@@ -11,8 +11,9 @@ package pl.godziszewo.kosciol.cache.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import pl.godziszewo.kosciol.cache.utils.CacheConstants
 
-@Entity(tableName = "gallery")
+@Entity(tableName = CacheConstants.GALLERY_TABLE_NAME)
 data class GalleryCacheEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
 

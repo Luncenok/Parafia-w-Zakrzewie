@@ -9,18 +9,18 @@
 package pl.godziszewo.kosciol.data
 
 import androidx.lifecycle.LiveData
-import pl.godziszewo.kosciol.cache.GalleryInfoDao
+import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 import javax.inject.Inject
 
-class GalleryInfoRepository @Inject constructor(private val galleryInfoDao: GalleryInfoDao) {
-    val allGalleryCacheEntity: LiveData<List<GalleryCacheEntity>> = galleryInfoDao.getAll()
+class GalleryInfoRepository @Inject constructor(private val galleryDao: GalleryDao) {
+    val allGalleryCacheEntity: LiveData<List<GalleryCacheEntity>> = galleryDao.getAll()
 
     suspend fun insert(galleryCacheEntity: GalleryCacheEntity) {
-        galleryInfoDao.insert(galleryCacheEntity)
+        galleryDao.insert(galleryCacheEntity)
     }
 
     suspend fun deleteAll() {
-        galleryInfoDao.deleteAll()
+        galleryDao.deleteAll()
     }
 }

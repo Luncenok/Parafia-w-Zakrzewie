@@ -18,7 +18,6 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import pl.godziszewo.kosciol.data.BibliaRepository
 import timber.log.Timber
 import java.net.UnknownHostException
 import javax.inject.Inject

@@ -20,14 +20,13 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import pl.droidsonroids.retrofit2.JspoonConverterFactory
-import pl.godziszewo.kosciol.cache.AppDatabase
-import pl.godziszewo.kosciol.cache.BibliaDao
-import pl.godziszewo.kosciol.cache.GalleryInfoDao
-import pl.godziszewo.kosciol.data.BibliaRepository
+import pl.godziszewo.kosciol.cache.database.AppDatabase
+import pl.godziszewo.kosciol.cache.dao.ChurchDao
+import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.data.GalleryInfoRepository
-import pl.godziszewo.kosciol.data.repository.KosciolRemote
+import pl.godziszewo.kosciol.data.repository.ChurchRemote
 import pl.godziszewo.kosciol.remote.api.KosciolApi
-import pl.godziszewo.kosciol.remote.repository.KosciolRemoteImp
+import pl.godziszewo.kosciol.remote.repository.ChurchRemoteImp
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -65,7 +64,7 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideKosciolRemote(kosciolRemote: KosciolRemoteImp): KosciolRemote {
+    fun provideKosciolRemote(kosciolRemote: ChurchRemoteImp): ChurchRemote {
         return kosciolRemote
     }
 
@@ -91,11 +90,11 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideGalleryInfoRepository(galleryInfoDao: GalleryInfoDao) =
-        GalleryInfoRepository(galleryInfoDao)
+    fun provideGalleryInfoRepository(galleryDao: GalleryDao) =
+        GalleryInfoRepository(galleryDao)
 
     @Singleton
     @Provides
-    fun provideBibliaRepository(bibliaDao: BibliaDao) =
-        BibliaRepository(bibliaDao)
+    fun provideBibliaRepository(churchDao: ChurchDao) =
+        BibliaRepository(churchDao)
 }

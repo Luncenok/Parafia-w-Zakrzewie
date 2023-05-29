@@ -8,12 +8,12 @@
 
 package pl.godziszewo.kosciol.remote.mappers
 
-import pl.godziszewo.kosciol.data.models.OgloszeniaEntity
+import pl.godziszewo.kosciol.data.models.AnnouncementEntity
 import pl.godziszewo.kosciol.remote.models.OgloszeniaModel
 
-class OgloszeniaEntityMapper : EntityMapper<OgloszeniaModel, OgloszeniaEntity> {
-    override fun mapFromModel(model: OgloszeniaModel): OgloszeniaEntity {
-        return OgloszeniaEntity(
+class OgloszeniaEntityMapper : EntityMapper<OgloszeniaModel, AnnouncementEntity> {
+    override fun mapFromModel(model: OgloszeniaModel): AnnouncementEntity {
+        return AnnouncementEntity(
             text = model.introList.plus(model.ogloszeniaList).joinToString("\n")
         )
     }

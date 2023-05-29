@@ -2,11 +2,11 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 3/10/23, 9:37 PM
+ *  * Last modified 5/8/23, 8:18 PM
  *
  */
 
-package pl.godziszewo.kosciol.cache
+package pl.godziszewo.kosciol.cache.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -16,9 +16,9 @@ import androidx.room.Query
 import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 
 @Dao
-interface GalleryInfoDao {
+interface GalleryDao {
     @Query("SELECT * FROM gallery")
-    fun getAll(): LiveData<List<GalleryCacheEntity>>
+    fun getAll(): List<GalleryCacheEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(galleryCacheEntity: GalleryCacheEntity)

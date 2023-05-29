@@ -9,5 +9,5 @@
 package pl.godziszewo.kosciol.remote.mappers
 
 interface EntityMapper<M, E> {
-    fun mapFromModel(model: M): E
+    fun mapToEntity(model: M): E
 }

@@ -10,8 +10,9 @@ package pl.godziszewo.kosciol.cache.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import pl.godziszewo.kosciol.cache.utils.CacheConstants
 
-@Entity(tableName = "announcements")
+@Entity(tableName = CacheConstants.ANNOUNCEMENT_TABLE_NAME)
 data class AnnouncementCacheEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,

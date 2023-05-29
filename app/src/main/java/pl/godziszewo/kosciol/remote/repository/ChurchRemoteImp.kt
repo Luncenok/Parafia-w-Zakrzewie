@@ -8,29 +8,29 @@
 
 package pl.godziszewo.kosciol.remote.repository
 
-import pl.godziszewo.kosciol.data.models.AktualnosciEntity
-import pl.godziszewo.kosciol.data.models.OgloszeniaEntity
-import pl.godziszewo.kosciol.data.repository.KosciolRemote
+import pl.godziszewo.kosciol.data.models.NewsEntity
+import pl.godziszewo.kosciol.data.models.AnnouncementEntity
+import pl.godziszewo.kosciol.data.repository.ChurchRemote
 import pl.godziszewo.kosciol.remote.api.KosciolApi
-import pl.godziszewo.kosciol.remote.mappers.AktualnosciEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.NewsEntityMapper
 import pl.godziszewo.kosciol.remote.mappers.OgloszeniaEntityMapper
 import javax.inject.Inject
 
-class KosciolRemoteImp @Inject constructor(
+class ChurchRemoteImp @Inject constructor(
     private val kosciolApi: KosciolApi,
-    private val aktualnosciEntityMapper: AktualnosciEntityMapper,
+    private val newsEntityMapper: NewsEntityMapper,
     private val ogloszeniaEntityMapper: OgloszeniaEntityMapper
-) : KosciolRemote {
-    override suspend fun getAktualnosci(): List<AktualnosciEntity> {
-        val list = mutableListOf<AktualnosciEntity>()
+) : ChurchRemote {
+    override suspend fun getNews(): List<NewsEntity> {
+        val list = mutableListOf<NewsEntity>()
         kosciolApi.getAktualnosciUrls().urlList.forEach { url ->
-            list.add(aktualnosciEntityMapper.mapFromModel(kosciolApi.getAktualnosci(url)))
+            list.add(newsEntityMapper.mapToEntity(kosciolApi.getAktualnosci(url)))
         }
         return list
     }
 
-    override suspend fun getOgloszenia(): List<OgloszeniaEntity> {
-        val list = mutableListOf<OgloszeniaEntity>()
+    override suspend fun getOgloszenia(): List<AnnouncementEntity> {
+        val list = mutableListOf<AnnouncementEntity>()
         kosciolApi.getOgloszeniaUrls().urlList.forEach { url ->
             list.add(ogloszeniaEntityMapper.mapFromModel(kosciolApi.getOgloszenia(url)))
         }

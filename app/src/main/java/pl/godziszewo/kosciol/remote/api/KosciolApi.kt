@@ -8,7 +8,7 @@
 
 package pl.godziszewo.kosciol.remote.api
 
-import pl.godziszewo.kosciol.remote.models.AktualnosciModel
+import pl.godziszewo.kosciol.remote.models.NewsModel
 import pl.godziszewo.kosciol.remote.models.OgloszeniaModel
 import pl.godziszewo.kosciol.remote.models.UrlsModel
 import retrofit2.http.GET
@@ -20,7 +20,7 @@ interface KosciolApi {
     suspend fun getAktualnosciUrls(): UrlsModel
 
     @GET("aktualnosci/{url}")
-    suspend fun getAktualnosci(@Path("url") url: String): AktualnosciModel
+    suspend fun getAktualnosci(@Path("url") url: String): NewsModel
 
     @GET("ogloszenia-duszpasterskie")
     suspend fun getOgloszeniaUrls(): UrlsModel

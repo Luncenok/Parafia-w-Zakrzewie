@@ -10,8 +10,9 @@ package pl.godziszewo.kosciol.cache.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import pl.godziszewo.kosciol.cache.utils.CacheConstants
 
-@Entity(tableName = "intentions")
+@Entity(tableName = CacheConstants.INTENTIONS_TABLE_NAME)
 data class IntentionCacheEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,

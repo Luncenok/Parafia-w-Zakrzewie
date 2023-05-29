@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import pl.godziszewo.kosciol.data.PreferencesRepository
 import pl.godziszewo.kosciol.databinding.MainFragmentBinding
 import pl.godziszewo.kosciol.kosciolui.base.BaseFragment
 import pl.godziszewo.kosciol.presentation.viewmodel.MainViewModel
