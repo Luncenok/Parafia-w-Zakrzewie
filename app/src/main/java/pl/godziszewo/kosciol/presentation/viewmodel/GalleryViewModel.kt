@@ -15,10 +15,11 @@ import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 import pl.godziszewo.kosciol.data.GalleryInfoRepository
 import javax.inject.Inject
 
+@Deprecated("No longer needed")
 @HiltViewModel
 class GalleryViewModel @Inject constructor(repository: GalleryInfoRepository) : ViewModel() {
 
-    val allGalleryCacheEntity: LiveData<List<GalleryCacheEntity>>
+    val allGalleryCacheEntity: List<GalleryCacheEntity>
 
     init {
         allGalleryCacheEntity = repository.allGalleryCacheEntity

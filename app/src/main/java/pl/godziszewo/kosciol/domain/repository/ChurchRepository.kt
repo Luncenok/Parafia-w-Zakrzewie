@@ -14,10 +14,10 @@ import pl.godziszewo.kosciol.domain.models.News
 
 interface ChurchRepository {
     // Remote and cache
-    suspend fun getAktualnosci(): Flow<List<News>>
+    suspend fun getNews(): Flow<List<News>>
     suspend fun getOgloszenia(): Flow<List<AnnouncementEntity>>
 
     // Cache
-    suspend fun saveAktualnosci(listAktualnosci: List<News>)
+    suspend fun saveNews(listAktualnosci: List<News>)
     suspend fun saveOgloszenia(listOgloszenia: List<AnnouncementEntity>)
 }

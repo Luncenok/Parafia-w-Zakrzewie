@@ -13,8 +13,9 @@ import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 import javax.inject.Inject
 
+@Deprecated("No longer needed")
 class GalleryInfoRepository @Inject constructor(private val galleryDao: GalleryDao) {
-    val allGalleryCacheEntity: LiveData<List<GalleryCacheEntity>> = galleryDao.getAll()
+    val allGalleryCacheEntity: List<GalleryCacheEntity> = galleryDao.getAll()
 
     suspend fun insert(galleryCacheEntity: GalleryCacheEntity) {
         galleryDao.insert(galleryCacheEntity)

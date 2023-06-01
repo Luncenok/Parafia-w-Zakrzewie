@@ -14,7 +14,6 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.databinding.InfoFragmentBinding
 import pl.godziszewo.kosciol.kosciolui.base.BaseFragment
-import pl.godziszewo.kosciol.presentation.viewmodel.InfoViewModel
 
 @AndroidEntryPoint
 class InfoFragment : BaseFragment<InfoFragmentBinding, InfoViewModel>() {

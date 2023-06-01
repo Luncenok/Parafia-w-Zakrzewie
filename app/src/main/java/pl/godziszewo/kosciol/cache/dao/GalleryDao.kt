@@ -15,6 +15,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
 
+@Deprecated("No longer needed")
 @Dao
 interface GalleryDao {
     @Query("SELECT * FROM gallery")

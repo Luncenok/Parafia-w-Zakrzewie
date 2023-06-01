@@ -11,10 +11,6 @@ package pl.godziszewo.kosciol.remote.models
 import pl.droidsonroids.jspoon.annotation.Selector
 
 data class UrlsModel(
-    // TODO: add thse below
-//    val titles: List<String>,
-//    val shorts: List<String>,
-//    val mainImages: List<String>,
     @Selector(
         value = ".content h3 a:not(.page-link), .content h5 a:not(.page-link)",
         attr = "href"

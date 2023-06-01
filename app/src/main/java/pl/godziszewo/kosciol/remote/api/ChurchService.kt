@@ -14,13 +14,13 @@ import pl.godziszewo.kosciol.remote.models.UrlsModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface KosciolApi {
+interface ChurchService {
 
     @GET("aktualnosci")
-    suspend fun getAktualnosciUrls(): UrlsModel
+    suspend fun getNewsUrls(): UrlsModel
 
     @GET("aktualnosci/{url}")
-    suspend fun getAktualnosci(@Path("url") url: String): NewsModel
+    suspend fun getNews(@Path("url") url: String): NewsModel
 
     @GET("ogloszenia-duszpasterskie")
     suspend fun getOgloszeniaUrls(): UrlsModel

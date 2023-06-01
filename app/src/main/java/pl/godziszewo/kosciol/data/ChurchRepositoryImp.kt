@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import pl.godziszewo.kosciol.data.mapper.NewsMapper
 import pl.godziszewo.kosciol.data.models.AnnouncementEntity
-import pl.godziszewo.kosciol.data.models.NewsEntity
 import pl.godziszewo.kosciol.data.source.ChurchDataSourceFactory
 import pl.godziszewo.kosciol.domain.models.News
 import pl.godziszewo.kosciol.domain.repository.ChurchRepository
@@ -22,13 +21,13 @@ class ChurchRepositoryImp @Inject constructor(
     private val dataSourceFactory: ChurchDataSourceFactory,
     private val newsMapper: NewsMapper,
 ) : ChurchRepository {
-    override suspend fun getAktualnosci(): Flow<List<News>> = flow {
+    override suspend fun getNews(): Flow<List<News>> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isCached()
         val characterList =
             dataSourceFactory.getDataStore(isCached).getNews().map { newsEntity ->
                 newsMapper.mapFromEntity(newsEntity)
             }
-        saveAktualnosci(characterList)
+        saveNews(characterList)
         emit(characterList)
     }
 
@@ -36,7 +35,7 @@ class ChurchRepositoryImp @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun saveAktualnosci(listAktualnosci: List<News>) {
+    override suspend fun saveNews(listAktualnosci: List<News>) {
         val newsEntities = listAktualnosci.map { character ->
             newsMapper.mapToEntity(character)
         }

@@ -20,10 +20,11 @@ import timber.log.Timber
 import java.net.UnknownHostException
 import javax.inject.Inject
 
+@Deprecated("No longer needed")
 @HiltViewModel
 class GalleriesViewModel @Inject constructor(private val repository: GalleryInfoRepository) : ViewModel() {
 
-    val allGalleryCacheEntity: LiveData<List<GalleryCacheEntity>> = repository.allGalleryCacheEntity
+    val allGalleryCacheEntity: List<GalleryCacheEntity> = repository.allGalleryCacheEntity
 
     fun dwnldcontent() {
         Timber.i("GalleryInfo sa pobierane")

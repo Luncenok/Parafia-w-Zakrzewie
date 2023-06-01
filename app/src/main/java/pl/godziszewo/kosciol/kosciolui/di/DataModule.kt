@@ -21,11 +21,10 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import pl.droidsonroids.retrofit2.JspoonConverterFactory
 import pl.godziszewo.kosciol.cache.database.AppDatabase
-import pl.godziszewo.kosciol.cache.dao.ChurchDao
 import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.data.GalleryInfoRepository
 import pl.godziszewo.kosciol.data.repository.ChurchRemote
-import pl.godziszewo.kosciol.remote.api.KosciolApi
+import pl.godziszewo.kosciol.remote.api.ChurchService
 import pl.godziszewo.kosciol.remote.repository.ChurchRemoteImp
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -58,8 +57,8 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideKosciolApi(retrofit: Retrofit): KosciolApi {
-        return retrofit.create(KosciolApi::class.java)
+    fun provideKosciolApi(retrofit: Retrofit): ChurchService {
+        return retrofit.create(ChurchService::class.java)
     }
 
     @Singleton
@@ -81,20 +80,7 @@ class DataModule {
         PreferenceManager.getDefaultSharedPreferences(context)
 
     @Singleton
-    @Provides //TODO: Rename this
-    fun provideBibliaDao(db: AppDatabase) = db.bibliaDao()
-
-    @Singleton
-    @Provides //TODO: Rename this
-    fun provideGalleryInfoDao(db: AppDatabase) = db.galleryInfoDao()
-
-    @Singleton
     @Provides
     fun provideGalleryInfoRepository(galleryDao: GalleryDao) =
         GalleryInfoRepository(galleryDao)
-
-    @Singleton
-    @Provides
-    fun provideBibliaRepository(churchDao: ChurchDao) =
-        BibliaRepository(churchDao)
 }
