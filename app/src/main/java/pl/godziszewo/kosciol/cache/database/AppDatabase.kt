@@ -12,8 +12,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.cache.dao.ChurchDao
+import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.cache.models.AnnouncementCacheEntity
 import pl.godziszewo.kosciol.cache.models.ConfessionCacheEntity
 import pl.godziszewo.kosciol.cache.models.GalleryCacheEntity
@@ -55,6 +55,6 @@ abstract class AppDatabase @Inject constructor() : RoomDatabase() {
             context.applicationContext,
             AppDatabase::class.java,
             CacheConstants.DB_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 }
