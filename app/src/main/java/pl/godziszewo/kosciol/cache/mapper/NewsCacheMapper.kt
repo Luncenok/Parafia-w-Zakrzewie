@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 5/10/23, 8:06 PM
+ *  * Last modified 6/2/23, 3:53 PM
  *
  */
 
@@ -19,8 +19,8 @@ class NewsCacheMapper @Inject constructor() : CacheMapper<NewsCacheEntity, NewsE
             date = type.date,
             short = type.short,
             mainImg = type.mainImg,
-            textList = type.elements ?: emptyList(),
-            imgUrls = type.images ?: emptyList()
+            textList = type.elements?.split() ?: emptyList(),
+            imgUrls = type.images?.split() ?: emptyList()
         )
     }
 
@@ -30,8 +30,8 @@ class NewsCacheMapper @Inject constructor() : CacheMapper<NewsCacheEntity, NewsE
             date = type.date,
             short = type.short,
             mainImg = type.mainImg,
-            elements = type.textList.ifEmpty { null },
-            images = type.imgUrls.ifEmpty { null }
+            elements = type.textList.ifEmpty { null }?.join(),
+            images = type.imgUrls.ifEmpty { null }?.join()
         )
 
     }

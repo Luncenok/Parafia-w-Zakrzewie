@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 3/10/23, 9:37 PM
+ *  * Last modified 9/4/23, 1:16 PM
  *
  */
 
@@ -17,8 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.databinding.GalleriesFragmentBinding
 import pl.godziszewo.kosciol.kosciolui.base.BaseFragment
 import pl.godziszewo.kosciol.presentation.viewmodel.GalleriesViewModel
-import timber.log.Timber
 
+@Deprecated("No longer needed")
 @AndroidEntryPoint
 class GalleriesFragment : BaseFragment<GalleriesFragmentBinding, GalleriesViewModel>() {
 
@@ -38,10 +38,10 @@ class GalleriesFragment : BaseFragment<GalleriesFragmentBinding, GalleriesViewMo
 
         viewModel.dwnldcontent()
 
-        viewModel.allGalleryCacheEntity.observe(viewLifecycleOwner) {
-            galleriesRecyclerAdapter?.setItems(it)
-            Timber.e(it.toString())
-        }
+//        viewModel.allGalleryCacheEntity.observe(viewLifecycleOwner) {
+//            galleriesRecyclerAdapter?.setItems(it)
+//            Timber.e(it.toString())
+//        }
     }
 
 }

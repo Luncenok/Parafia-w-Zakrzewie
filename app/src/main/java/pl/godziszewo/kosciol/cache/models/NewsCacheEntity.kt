@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 3/10/23, 9:37 PM
+ *  * Last modified 6/2/23, 3:46 PM
  *
  */
 
@@ -19,6 +19,6 @@ data class NewsCacheEntity(
     val date: String, // niedziela, 12.02.2023
     val short: String,
     val mainImg: String,
-    val elements: List<String>? = null,
-    val images: List<String>? = null,
+    val elements: String? = null,
+    val images: String? = null,
 )

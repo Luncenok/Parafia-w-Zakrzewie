@@ -1,14 +1,14 @@
 <!--
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
-  ~  * Copyright (c) 2022 . All rights reserved.
-  ~  * Last modified 10/24/22, 6:30 PM
+  ~  * Copyright (c) 2023 . All rights reserved.
+  ~  * Last modified 6/2/23, 5:20 PM
   ~  */
   -->
 
 <resources>
 
-    <style name="AppTheme" parent="Theme.Material3.DayNight">
+    <style name="AppTheme" parent="Theme.Material3.Light">
         <item name="colorPrimary">@color/pink</item>
         <item name="colorOnPrimary">@color/white_pink</item>
         <item name="colorPrimaryContainer">@color/light_pink</item>

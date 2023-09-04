@@ -2,14 +2,14 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/4/23, 7:27 PM
+ *  * Last modified 9/4/23, 1:16 PM
  *
  */
 
 package pl.godziszewo.kosciol.remote.repository
 
-import pl.godziszewo.kosciol.data.models.NewsEntity
 import pl.godziszewo.kosciol.data.models.AnnouncementEntity
+import pl.godziszewo.kosciol.data.models.NewsEntity
 import pl.godziszewo.kosciol.data.repository.ChurchRemote
 import pl.godziszewo.kosciol.remote.api.ChurchService
 import pl.godziszewo.kosciol.remote.mappers.NewsEntityMapper
@@ -29,7 +29,7 @@ class ChurchRemoteImp @Inject constructor(
 
     override suspend fun getOgloszenia(): List<AnnouncementEntity> {
         return churchService.getOgloszeniaUrls().urlList.map { url ->
-            ogloszeniaEntityMapper.mapFromModel(churchService.getOgloszenia(url))
+            ogloszeniaEntityMapper.mapToEntity(churchService.getOgloszenia(url))
         }
     }
 }

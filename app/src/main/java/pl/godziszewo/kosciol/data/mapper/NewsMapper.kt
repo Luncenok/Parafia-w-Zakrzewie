@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 5/10/23, 9:17 PM
+ *  * Last modified 6/2/23, 3:44 PM
  *
  */
 
@@ -13,7 +13,7 @@ import pl.godziszewo.kosciol.domain.models.News
 import javax.inject.Inject
 
 class NewsMapper @Inject constructor() : Mapper<NewsEntity, News> {
-    override fun mapFromEntity(type: NewsEntity): News {
+    override fun mapFromEntity(type: NewsEntity): News { // todo text -> html
         return News(
             id = type.id ?: 0,
             title = type.title,
@@ -25,7 +25,7 @@ class NewsMapper @Inject constructor() : Mapper<NewsEntity, News> {
         )
     }
 
-    override fun mapToEntity(type: News): NewsEntity {
+    override fun mapToEntity(type: News): NewsEntity { // todo html -> text
         return NewsEntity(
             id = type.id,
             title = type.title,

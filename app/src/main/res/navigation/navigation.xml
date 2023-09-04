@@ -2,7 +2,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2023 . All rights reserved.
-  ~  * Last modified 1/3/23, 9:08 PM
+  ~  * Last modified 6/2/23, 5:12 PM
   ~  */
   -->
 
@@ -10,12 +10,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="pl.godziszewo.kosciol.kosciolui.ui.main.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/main_fragment">
+        android:id="@+id/homeFragment"
+        android:name="pl.godziszewo.kosciol.kosciolui.ui.home.HomeFragment"
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_mainFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
@@ -26,12 +25,10 @@
     <fragment
         android:id="@+id/infoFragment"
         android:name="pl.godziszewo.kosciol.kosciolui.ui.info.InfoFragment"
-        android:label="wybor_fragment"
         tools:layout="@layout/info_fragment" />
     <fragment
         android:id="@+id/galleriesFragment"
         android:name="pl.godziszewo.kosciol.kosciolui.ui.galleries.GalleriesFragment"
-        android:label="galleries_fragment"
         tools:layout="@layout/galleries_fragment" >
         <action
             android:id="@+id/action_galleriesFragment_to_galleryFragment"
@@ -40,6 +37,5 @@
     <fragment
         android:id="@+id/galleryFragment"
         android:name="pl.godziszewo.kosciol.kosciolui.ui.gallery.GalleryFragment"
-        android:label="gallery_fragment"
         tools:layout="@layout/gallery_fragment" />
 </navigation>

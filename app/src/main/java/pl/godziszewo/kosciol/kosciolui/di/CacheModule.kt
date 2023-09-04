@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Mateusz Idziejczak on 05.03.2022
+ *  * Copyright (c) 2023 . All rights reserved.
+ *  * Last modified 6/2/23, 4:23 PM
+ *
+ */
+
 package com.aqube.ram.di
 
 import android.content.Context
@@ -8,6 +16,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import pl.godziszewo.kosciol.cache.ChurchCacheImp
 import pl.godziszewo.kosciol.cache.dao.ChurchDao
+import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.cache.database.AppDatabase
 import pl.godziszewo.kosciol.cache.utils.CachePreferencesHelper
 import pl.godziszewo.kosciol.data.repository.ChurchCache
@@ -25,13 +34,19 @@ object CacheModule {
 
     @Provides
     @Singleton
-    fun provideCharacterDao(churchDatabase: AppDatabase): ChurchDao {
+    fun provideChurchDao(churchDatabase: AppDatabase): ChurchDao {
         return churchDatabase.churchDao()
     }
 
     @Provides
     @Singleton
-    fun provideCharacterCache(churchCache: ChurchCacheImp): ChurchCache {
+    fun provideGalleryDao(churchDatabase: AppDatabase): GalleryDao {
+        return churchDatabase.galleryDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideChurchCache(churchCache: ChurchCacheImp): ChurchCache {
         return churchCache
     }
 

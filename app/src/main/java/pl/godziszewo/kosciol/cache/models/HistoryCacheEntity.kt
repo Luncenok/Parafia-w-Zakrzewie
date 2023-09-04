@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 3/10/23, 9:37 PM
+ *  * Last modified 6/2/23, 3:53 PM
  *
  */
 
@@ -15,5 +15,5 @@ import pl.godziszewo.kosciol.cache.utils.CacheConstants
 @Entity(tableName = CacheConstants.HISTORY_TABLE_NAME)
 data class HistoryCacheEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val elements: List<String>
+    val elements: String
 )

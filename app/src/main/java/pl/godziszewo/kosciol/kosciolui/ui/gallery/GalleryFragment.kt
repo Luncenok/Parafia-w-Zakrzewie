@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 3/10/23, 9:37 PM
+ *  * Last modified 9/4/23, 1:16 PM
  *
  */
 
@@ -16,8 +16,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.databinding.GalleryFragmentBinding
 import pl.godziszewo.kosciol.kosciolui.base.BaseFragment
 import pl.godziszewo.kosciol.presentation.viewmodel.GalleryViewModel
-import timber.log.Timber
 
+@Deprecated("No longer needed")
 @AndroidEntryPoint
 class GalleryFragment : BaseFragment<GalleryFragmentBinding, GalleryViewModel>() {
 
@@ -31,15 +31,15 @@ class GalleryFragment : BaseFragment<GalleryFragmentBinding, GalleryViewModel>()
         val galleryRecyclerAdapter = GalleryRecyclerAdapter(requireContext())
 
         val link = activity?.intent?.getIntExtra("link", 0)
-        viewModel.allGalleryCacheEntity.observe(viewLifecycleOwner) { list ->
-            list.forEach { gi ->
-                if (gi.id == link) {
-                    val linki = gi.linki.split(",")
-                    galleryRecyclerAdapter.setItems(linki)
-                    Timber.e("ustawniono")
-                }
-            }
-        }
+//        viewModel.allGalleryCacheEntity.observe(viewLifecycleOwner) { list ->
+//            list.forEach { gi ->
+//                if (gi.id == link) {
+//                    val linki = gi.linki.split(",")
+//                    galleryRecyclerAdapter.setItems(linki)
+//                    Timber.e("ustawniono")
+//                }
+//            }
+//        }
 
         binding.galleryRecycler.apply {
             adapter = galleryRecyclerAdapter

@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/3/23, 9:56 PM
+ *  * Last modified 6/2/23, 3:19 PM
  *
  */
 
@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import pl.godziszewo.kosciol.R
 
+@Deprecated("No longer needed")
 class GalleryRecyclerAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>() {
 

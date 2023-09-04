@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 5/8/23, 8:18 PM
+ *  * Last modified 9/4/23, 1:16 PM
  *
  */
 
@@ -23,7 +23,6 @@ import pl.godziszewo.kosciol.cache.models.MassesCacheEntity
 import pl.godziszewo.kosciol.cache.models.NewsCacheEntity
 import pl.godziszewo.kosciol.cache.utils.CacheConstants
 import pl.godziszewo.kosciol.cache.utils.Migrations
-import javax.inject.Inject
 
 @Database(
     entities = [
@@ -38,7 +37,7 @@ import javax.inject.Inject
     version = Migrations.DB_VERSION,
     exportSchema = false
 )
-abstract class AppDatabase @Inject constructor() : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun churchDao(): ChurchDao
     abstract fun galleryDao(): GalleryDao
