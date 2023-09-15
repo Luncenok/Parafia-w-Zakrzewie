@@ -1,3 +1,11 @@
+/*
+ * *
+ *  * Created by Mateusz Idziejczak on 05.03.2022
+ *  * Copyright (c) 2023 . All rights reserved.
+ *  * Last modified 9/15/23, 6:18 PM
+ *
+ */
+
 package pl.godziszewo.kosciol.remote.api
 
 import okhttp3.OkHttpClient
@@ -32,7 +40,7 @@ object ServiceFactory {
     private fun createLoggingInterceptor(isDebug: Boolean): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             level = if (isDebug) {
-                HttpLoggingInterceptor.Level.BASIC
+                HttpLoggingInterceptor.Level.BODY
             } else {
                 HttpLoggingInterceptor.Level.NONE
             }

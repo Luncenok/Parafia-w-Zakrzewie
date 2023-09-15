@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 1/4/23, 7:06 PM
+ *  * Last modified 9/15/23, 6:18 PM
  *
  */
 
@@ -14,5 +14,5 @@ data class UrlsModel(
     @Selector(
         value = ".content h3 a:not(.page-link), .content h5 a:not(.page-link)",
         attr = "href"
-    ) val urlList: List<String>
+    ) val urlList: List<String> = emptyList()
 )

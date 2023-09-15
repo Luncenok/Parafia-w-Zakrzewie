@@ -2,7 +2,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2023 . All rights reserved.
-  ~  * Last modified 6/2/23, 5:12 PM
+  ~  * Last modified 9/15/23, 6:18 PM
   ~  */
   -->
 
@@ -16,10 +16,10 @@
         android:name="pl.godziszewo.kosciol.kosciolui.ui.home.HomeFragment"
         tools:layout="@layout/home_fragment">
         <action
-            android:id="@+id/action_mainFragment_to_infoFragment"
+            android:id="@+id/action_to_infoFragment"
             app:destination="@id/infoFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_galleriesFragment"
+            android:id="@+id/action_to_galleriesFragment"
             app:destination="@id/galleriesFragment" />
     </fragment>
     <fragment
