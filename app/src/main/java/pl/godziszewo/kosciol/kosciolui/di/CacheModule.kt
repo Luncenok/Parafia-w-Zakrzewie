@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 6/2/23, 4:23 PM
+ *  * Last modified 9/15/23, 6:58 PM
  *
  */
 
@@ -16,7 +16,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import pl.godziszewo.kosciol.cache.ChurchCacheImp
 import pl.godziszewo.kosciol.cache.dao.ChurchDao
-import pl.godziszewo.kosciol.cache.dao.GalleryDao
 import pl.godziszewo.kosciol.cache.database.AppDatabase
 import pl.godziszewo.kosciol.cache.utils.CachePreferencesHelper
 import pl.godziszewo.kosciol.data.repository.ChurchCache
@@ -36,12 +35,6 @@ object CacheModule {
     @Singleton
     fun provideChurchDao(churchDatabase: AppDatabase): ChurchDao {
         return churchDatabase.churchDao()
-    }
-
-    @Provides
-    @Singleton
-    fun provideGalleryDao(churchDatabase: AppDatabase): GalleryDao {
-        return churchDatabase.galleryDao()
     }
 
     @Provides
