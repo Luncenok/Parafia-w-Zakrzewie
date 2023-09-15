@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 9:48 PM
+ *  * Last modified 9/15/23, 11:48 PM
  *
  */
 
@@ -28,10 +28,10 @@ interface ChurchService {
     @GET("aktualnosci/{url}")
     suspend fun getNews(@Path("url") url: String): NewsModel
 
-    @GET("ogloszenia-duszpasterskie")
+    @GET("ogloszenia_duszpasterskie")
     suspend fun getAnnouncementsUrls(): UrlsModel
 
-    @GET("ogloszenia-duszpasterskie/{url}")
+    @GET("ogloszenia_duszpasterskie/{url}")
     suspend fun getAnnouncements(@Path("url") url: String): AnnouncementsModel
 
     @GET("intencje")
@@ -40,18 +40,18 @@ interface ChurchService {
     @GET("intencje/{url}")
     suspend fun getIntentions(@Path("url") url: String): IntentionsModel
 
-    @GET("intencje")
+    @GET("cmentarz")
     suspend fun getCemetery(): CemeteryModel
 
-    @GET("intencje")
+    @GET("sakramenty")
     suspend fun getConfession(): ConfessionModel
 
-    @GET("intencje")
+    @GET("kontakt")
     suspend fun getContact(): ContactModel
 
-    @GET("intencje")
+    @GET("historia_parafii")
     suspend fun getHistory(): HistoryModel
 
-    @GET("intencje")
+    @GET("sakramenty")
     suspend fun getMasses(): MassesModel
 }

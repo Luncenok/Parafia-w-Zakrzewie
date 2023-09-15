@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 9:48 PM
+ *  * Last modified 9/16/23, 12:10 AM
  *
  */
 
@@ -84,7 +84,7 @@ class ChurchCacheImp @Inject constructor(
     }
 
     override suspend fun getCemetery(): CemeteryEntity {
-        return cemeteryCacheMapper.mapFromCached(churchDao.getCemetery())
+        return cemeteryCacheMapper.mapFromCached(churchDao.getCemetery()!!)
     }
 
     override suspend fun saveCemetery(cemetery: CemeteryEntity) {
@@ -92,7 +92,7 @@ class ChurchCacheImp @Inject constructor(
     }
 
     override suspend fun getContact(): ContactEntity {
-        return contactCacheMapper.mapFromCached(churchDao.getContact())
+        return contactCacheMapper.mapFromCached(churchDao.getContact()!!)
     }
 
     override suspend fun saveContact(contact: ContactEntity) {
@@ -100,7 +100,7 @@ class ChurchCacheImp @Inject constructor(
     }
 
     override suspend fun getConfession(): ConfessionEntity {
-        return confessionCacheMapper.mapFromCached(churchDao.getConfessions())
+        return confessionCacheMapper.mapFromCached(churchDao.getConfessions()!!)
     }
 
     override suspend fun saveConfession(confession: ConfessionEntity) {
@@ -108,7 +108,7 @@ class ChurchCacheImp @Inject constructor(
     }
 
     override suspend fun getHistory(): HistoryEntity {
-        return historyCacheMapper.mapFromCached(churchDao.getHistory())
+        return historyCacheMapper.mapFromCached(churchDao.getHistory()!!)
     }
 
     override suspend fun saveHistory(history: HistoryEntity) {
@@ -116,7 +116,7 @@ class ChurchCacheImp @Inject constructor(
     }
 
     override suspend fun getMasses(): MassesEntity {
-        return massesCacheMapper.mapFromCached(churchDao.getMasses())
+        return massesCacheMapper.mapFromCached(churchDao.getMasses()!!)
     }
 
     override suspend fun saveMasses(masses: MassesEntity) {
@@ -124,9 +124,38 @@ class ChurchCacheImp @Inject constructor(
     }
 
 
-    override suspend fun isCached(): Boolean {
+    override suspend fun isNewsCached(): Boolean {
         return churchDao.getAllNews().isNotEmpty()
     }
+
+    override suspend fun isAnnouncementsCached(): Boolean {
+        return churchDao.getAllAnnouncements().isNotEmpty()
+    }
+
+    override suspend fun isIntentionsCached(): Boolean {
+        return churchDao.getAllIntentions().isNotEmpty()
+    }
+
+    override suspend fun isCemeteryCached(): Boolean {
+        return churchDao.getCemetery() != null
+    }
+
+    override suspend fun isContactCached(): Boolean {
+        return churchDao.getContact() != null
+    }
+
+    override suspend fun isConfessionCached(): Boolean {
+        return churchDao.getConfessions() != null
+    }
+
+    override suspend fun isHistoryCached(): Boolean {
+        return churchDao.getHistory() != null
+    }
+
+    override suspend fun isMassesCached(): Boolean {
+        return churchDao.getMasses() != null
+    }
+
 
     override suspend fun setLastCacheTime(lastCache: Long) {
         preferencesHelper.lastCacheTime = lastCache

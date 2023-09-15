@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:03 PM
+ *  * Last modified 9/16/23, 12:10 AM
  *
  */
 
@@ -100,7 +100,20 @@ class InfoViewModel @Inject constructor(
 
     private suspend fun loadContactInfo() {
         getContactInfoUseCase(Unit).collect {
-            _infoList.postValue(InfoUIModel.Success(listOf(it.textList)))
+            _infoList.postValue(
+                InfoUIModel.Success(
+                    listOf(
+                        it.textList, listOf(
+                            """
+                <h3>Kontakt z autorem aplikacji</h3><br>
+                <p> &nbsp; Mateusz Idziejczak <p><br>
+                <p> &nbsp; Tel.: +48 730 299 366 (SMS)
+                <br> &nbsp; E-mail: <a href="mailto:mateusz.idziejczak@gmail.com">mateusz.idziejczak@gmail.com</a></p>
+            """.trimIndent()
+                        )
+                    )
+                )
+            )
         }
     }
 

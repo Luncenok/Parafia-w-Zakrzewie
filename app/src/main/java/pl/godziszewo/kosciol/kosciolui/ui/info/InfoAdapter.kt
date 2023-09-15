@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:03 PM
+ *  * Last modified 9/15/23, 11:52 PM
  *
  */
 
@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import pl.godziszewo.kosciol.BuildConfig
 import pl.godziszewo.kosciol.databinding.ItemInfoListBinding
 import pl.godziszewo.kosciol.kosciolui.base.BaseAdapter
 import javax.inject.Inject
@@ -46,13 +47,15 @@ class InfoAdapter @Inject constructor(
         override fun bind(item: List<String>) {
             binding.apply {
 
-                item.joinToString("<br>").let {
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                        infoText.text = Html.fromHtml(it, Html.FROM_HTML_MODE_COMPACT)
-                    } else {
-                        @Suppress("DEPRECATION")
-                        infoText.text = Html.fromHtml(it)
-                    }
+                item.joinToString("<br>")
+                    .replace("href=\"/", "href=\"${BuildConfig.BASE_URL}/")
+                    .let {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                            infoText.text = Html.fromHtml(it, Html.FROM_HTML_MODE_COMPACT)
+                        } else {
+                            @Suppress("DEPRECATION")
+                            infoText.text = Html.fromHtml(it)
+                        }
                 }
 
                 infoText.movementMethod = LinkMovementMethod.getInstance()

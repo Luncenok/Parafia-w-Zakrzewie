@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 9:48 PM
+ *  * Last modified 9/15/23, 11:20 PM
  *
  */
 
@@ -34,7 +34,14 @@ interface ChurchCache {
     suspend fun saveHistory(history: HistoryEntity)
     suspend fun getMasses(): MassesEntity
     suspend fun saveMasses(masses: MassesEntity)
-    suspend fun isCached(): Boolean
+    suspend fun isNewsCached(): Boolean
+    suspend fun isAnnouncementsCached(): Boolean
+    suspend fun isIntentionsCached(): Boolean
+    suspend fun isCemeteryCached(): Boolean
+    suspend fun isContactCached(): Boolean
+    suspend fun isConfessionCached(): Boolean
+    suspend fun isHistoryCached(): Boolean
+    suspend fun isMassesCached(): Boolean
     suspend fun setLastCacheTime(lastCache: Long)
     suspend fun isExpired(): Boolean
     suspend fun setFirstUse()

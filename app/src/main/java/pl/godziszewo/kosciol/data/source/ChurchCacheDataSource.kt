@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 8:22 PM
+ *  * Last modified 9/15/23, 11:20 PM
  *
  */
 
@@ -88,8 +88,36 @@ class ChurchCacheDataSource @Inject constructor(
         churchCache.saveMasses(masses)
     }
 
-    override suspend fun isCached(): Boolean {
-        return churchCache.isCached()
+    override suspend fun isNewsCached(): Boolean {
+        return churchCache.isNewsCached()
+    }
+
+    override suspend fun isAnnouncementsCached(): Boolean {
+        return churchCache.isAnnouncementsCached()
+    }
+
+    override suspend fun isIntentionsCached(): Boolean {
+        return churchCache.isIntentionsCached()
+    }
+
+    override suspend fun isCemeteryCached(): Boolean {
+        return churchCache.isCemeteryCached()
+    }
+
+    override suspend fun isContactCached(): Boolean {
+        return churchCache.isContactCached()
+    }
+
+    override suspend fun isConfessionCached(): Boolean {
+        return churchCache.isConfessionCached()
+    }
+
+    override suspend fun isHistoryCached(): Boolean {
+        return churchCache.isHistoryCached()
+    }
+
+    override suspend fun isMassesCached(): Boolean {
+        return churchCache.isMassesCached()
     }
 
 }

@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 8:31 PM
+ *  * Last modified 9/15/23, 11:21 PM
  *
  */
 
@@ -87,8 +87,35 @@ class ChurchRemoteDataSource @Inject constructor(
         throw UnsupportedOperationException("Save masses is not supported for RemoteDataSource")
     }
 
+    override suspend fun isNewsCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
 
-    override suspend fun isCached(): Boolean {
+    override suspend fun isAnnouncementsCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
+
+    override suspend fun isIntentionsCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
+
+    override suspend fun isCemeteryCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
+
+    override suspend fun isContactCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
+
+    override suspend fun isConfessionCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
+
+    override suspend fun isHistoryCached(): Boolean {
+        throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
+    }
+
+    override suspend fun isMassesCached(): Boolean {
         throw UnsupportedOperationException("Cache is not supported for RemoteDataSource.")
     }
 }

@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 7:20 PM
+ *  * Last modified 9/15/23, 11:20 PM
  *
  */
 
@@ -31,19 +31,19 @@ interface ChurchDao {
     fun addNews(vararg newsCacheEntity: NewsCacheEntity)
 
     @Query("SELECT * FROM history")
-    fun getHistory(): HistoryCacheEntity
+    fun getHistory(): HistoryCacheEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addHistory(historyCacheEntity: HistoryCacheEntity)
 
     @Query("SELECT * FROM masses")
-    fun getMasses(): MassesCacheEntity
+    fun getMasses(): MassesCacheEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addMasses(massesCacheEntity: MassesCacheEntity)
 
     @Query("SELECT * FROM confessions")
-    fun getConfessions(): ConfessionCacheEntity
+    fun getConfessions(): ConfessionCacheEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addConfessions(confessionCacheEntity: ConfessionCacheEntity)
@@ -61,13 +61,13 @@ interface ChurchDao {
     fun addAnnouncement(vararg announcementCacheEntity: AnnouncementCacheEntity)
 
     @Query("SELECT * FROM cemetery")
-    fun getCemetery(): CemeteryCacheEntity
+    fun getCemetery(): CemeteryCacheEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addCemetery(cemeteryCacheEntity: CemeteryCacheEntity)
 
     @Query("SELECT * FROM contact")
-    fun getContact(): ContactCacheEntity
+    fun getContact(): ContactCacheEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addContact(contactCacheEntity: ContactCacheEntity)
