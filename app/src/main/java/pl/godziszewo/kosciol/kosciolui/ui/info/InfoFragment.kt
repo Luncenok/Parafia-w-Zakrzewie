@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 6:18 PM
+ *  * Last modified 9/15/23, 11:03 PM
  *
  */
 
@@ -11,6 +11,7 @@ package pl.godziszewo.kosciol.kosciolui.ui.info
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.databinding.InfoFragmentBinding
@@ -24,6 +25,7 @@ import javax.inject.Inject
 class InfoFragment : BaseFragment<InfoFragmentBinding, InfoViewModel>() {
 
     override val viewModel: InfoViewModel by viewModels()
+    private val args: InfoFragmentArgs by navArgs()
 
     override fun getViewBinding(): InfoFragmentBinding = InfoFragmentBinding.inflate(layoutInflater)
 
@@ -32,8 +34,7 @@ class InfoFragment : BaseFragment<InfoFragmentBinding, InfoViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //todo val type = (findNavController().currentDestination?.label == getString(R.string.menu_favorites))
-        viewModel.getInfo(true/*type*/)
+        viewModel.getInfo(args.infoType)
         observe(viewModel.getInfo(), ::onViewStateChange)
         initRecyclerView()
     }

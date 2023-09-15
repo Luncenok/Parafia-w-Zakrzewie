@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 6:18 PM
+ *  * Last modified 9/15/23, 11:03 PM
  *
  */
 
@@ -25,8 +25,29 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.homeCardAktualnosci.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment())
+        binding.homeCardNews.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("NEWS"))
+        }
+        binding.homeCardAnnouncements.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("ANNOUNCEMENTS"))
+        }
+        binding.homeCardCemetery.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("CEMETERY"))
+        }
+        binding.homeCardConfession.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("CONFESSION"))
+        }
+        binding.homeCardContakt.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("CONTACT"))
+        }
+        binding.homeCardHistory.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("HISTORY"))
+        }
+        binding.homeCardIntentions.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("INTENTIONS"))
+        }
+        binding.homeCardMasses.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("MASSES"))
         }
     }
 

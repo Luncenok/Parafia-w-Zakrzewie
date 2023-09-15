@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 6:18 PM
+ *  * Last modified 9/15/23, 11:03 PM
  *
  */
 
@@ -16,21 +16,20 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import pl.godziszewo.kosciol.databinding.ItemInfoListBinding
-import pl.godziszewo.kosciol.domain.models.News
 import pl.godziszewo.kosciol.kosciolui.base.BaseAdapter
 import javax.inject.Inject
 
 class InfoAdapter @Inject constructor(
     //private val glide: RequestManager
-) : BaseAdapter<News>() {
+) : BaseAdapter<List<String>>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<News>() {
-        override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
-            return oldItem.id == newItem.id
+    private val diffCallback = object : DiffUtil.ItemCallback<List<String>>() {
+        override fun areItemsTheSame(oldItem: List<String>, newItem: List<String>): Boolean {
+            return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
+        override fun areContentsTheSame(oldItem: List<String>, newItem: List<String>): Boolean {
+            return oldItem.count() == newItem.count()
         }
     }
 
@@ -39,18 +38,19 @@ class InfoAdapter @Inject constructor(
     override fun getViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding =
             ItemInfoListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NewsViewHolder(binding)
+        return AdapterViewHolder(binding)
     }
 
-    inner class NewsViewHolder(private val binding: ItemInfoListBinding) :
-        RecyclerView.ViewHolder(binding.root), Binder<News> {
-        override fun bind(item: News) {
+    inner class AdapterViewHolder(private val binding: ItemInfoListBinding) :
+        RecyclerView.ViewHolder(binding.root), Binder<List<String>> {
+        override fun bind(item: List<String>) {
             binding.apply {
 
-                item.elements.joinToString("<br>").let {
+                item.joinToString("<br>").let {
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                         infoText.text = Html.fromHtml(it, Html.FROM_HTML_MODE_COMPACT)
                     } else {
+                        @Suppress("DEPRECATION")
                         infoText.text = Html.fromHtml(it)
                     }
                 }

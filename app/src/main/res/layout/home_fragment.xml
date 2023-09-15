@@ -4,7 +4,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2023 . All rights reserved.
-  ~  * Last modified 6/2/23, 5:07 PM
+  ~  * Last modified 9/15/23, 11:03 PM
   ~  */
   -->
 
@@ -76,7 +76,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_aktualnosci"
+                        android:id="@+id/home_card_news"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
@@ -84,13 +84,13 @@
 
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/home_card_parafia"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_history"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_aktualnosci"
+                            android:id="@+id/home_text_news"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -102,7 +102,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_parafia"
+                        android:id="@+id/home_card_history"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
@@ -110,12 +110,12 @@
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/home_card_aktualnosci"
+                        app:layout_constraintStart_toEndOf="@id/home_card_news"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_parafia"
+                            android:id="@+id/home_text_history"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -138,20 +138,20 @@
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_msze"
+                        android:id="@+id/home_card_masses"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
                         app:cardBackgroundColor="@color/pink"
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/home_card_spowiedz"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_confession"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_msze"
+                            android:id="@+id/home_text_masses"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -163,7 +163,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_spowiedz"
+                        android:id="@+id/home_card_confession"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
@@ -171,12 +171,12 @@
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/home_card_msze"
+                        app:layout_constraintStart_toEndOf="@id/home_card_masses"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_spowiedz"
+                            android:id="@+id/home_text_confession"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -199,20 +199,20 @@
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_intencje"
+                        android:id="@+id/home_card_intentions"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
                         app:cardBackgroundColor="@color/pink"
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/home_card_ogloszenia"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_announcements"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_intencje"
+                            android:id="@+id/home_text_intentions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -224,7 +224,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_ogloszenia"
+                        android:id="@+id/home_card_announcements"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
@@ -232,12 +232,12 @@
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/home_card_intencje"
+                        app:layout_constraintStart_toEndOf="@id/home_card_intentions"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_ogloszenia"
+                            android:id="@+id/home_text_announcements"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -260,20 +260,20 @@
                     app:layout_constraintVertical_weight="1">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_cmentarz"
+                        android:id="@+id/home_card_cemetery"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
                         app:cardBackgroundColor="@color/pink"
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/home_card_kontakt"
+                        app:layout_constraintEnd_toStartOf="@id/home_card_contakt"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_cmentarz"
+                            android:id="@+id/home_text_cemetery"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -285,7 +285,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/home_card_kontakt"
+                        android:id="@+id/home_card_contakt"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_margin="10dp"
@@ -293,12 +293,12 @@
                         app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/home_card_cmentarz"
+                        app:layout_constraintStart_toEndOf="@id/home_card_cemetery"
                         app:layout_constraintTop_toTopOf="parent"
                         app:strokeWidth="0dp">
 
                         <TextView
-                            android:id="@+id/home_text_kontakt"
+                            android:id="@+id/home_text_contakt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
