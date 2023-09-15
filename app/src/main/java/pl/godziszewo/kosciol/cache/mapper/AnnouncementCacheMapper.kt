@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 5/8/23, 8:47 PM
+ *  * Last modified 9/15/23, 9:29 PM
  *
  */
 
@@ -15,11 +15,19 @@ import javax.inject.Inject
 class AnnouncementCacheMapper @Inject constructor() : CacheMapper<AnnouncementCacheEntity, AnnouncementEntity> {
     override fun mapFromCached(type: AnnouncementCacheEntity): AnnouncementEntity {
         return AnnouncementEntity(
-            text = type.toString()
+            title = type.title,
+            date = type.date,
+            short = type.short,
+            textList = type.elements?.split() ?: emptyList()
         )
     }
 
     override fun mapToCached(type: AnnouncementEntity): AnnouncementCacheEntity {
-        TODO("Not yet implemented")
+        return AnnouncementCacheEntity(
+            title = type.title,
+            date = type.date,
+            short = type.short,
+            elements = type.textList.ifEmpty { null }?.join()
+        )
     }
 }

@@ -2,24 +2,42 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/4/23, 1:16 PM
+ *  * Last modified 9/15/23, 9:48 PM
  *
  */
 
 package pl.godziszewo.kosciol.remote.repository
 
 import pl.godziszewo.kosciol.data.models.AnnouncementEntity
+import pl.godziszewo.kosciol.data.models.CemeteryEntity
+import pl.godziszewo.kosciol.data.models.ConfessionEntity
+import pl.godziszewo.kosciol.data.models.ContactEntity
+import pl.godziszewo.kosciol.data.models.HistoryEntity
+import pl.godziszewo.kosciol.data.models.IntentionEntity
+import pl.godziszewo.kosciol.data.models.MassesEntity
 import pl.godziszewo.kosciol.data.models.NewsEntity
 import pl.godziszewo.kosciol.data.repository.ChurchRemote
 import pl.godziszewo.kosciol.remote.api.ChurchService
+import pl.godziszewo.kosciol.remote.mappers.AnnouncementsEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.CemeteryEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.ConfessionEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.ContactEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.HistoryEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.IntentionsEntityMapper
+import pl.godziszewo.kosciol.remote.mappers.MassesEntityMapper
 import pl.godziszewo.kosciol.remote.mappers.NewsEntityMapper
-import pl.godziszewo.kosciol.remote.mappers.OgloszeniaEntityMapper
 import javax.inject.Inject
 
 class ChurchRemoteImp @Inject constructor(
     private val churchService: ChurchService,
     private val newsEntityMapper: NewsEntityMapper,
-    private val ogloszeniaEntityMapper: OgloszeniaEntityMapper
+    private val announcementsEntityMapper: AnnouncementsEntityMapper,
+    private val intentionEntityMapper: IntentionsEntityMapper,
+    private val cemeteryEntityMapper: CemeteryEntityMapper,
+    private val contactEntityMapper: ContactEntityMapper,
+    private val confessionEntityMapper: ConfessionEntityMapper,
+    private val historyEntityMapper: HistoryEntityMapper,
+    private val massesEntityMapper: MassesEntityMapper,
 ) : ChurchRemote {
     override suspend fun getNews(): List<NewsEntity> {
         return churchService.getNewsUrls().urlList.map { url ->
@@ -27,9 +45,36 @@ class ChurchRemoteImp @Inject constructor(
         }
     }
 
-    override suspend fun getOgloszenia(): List<AnnouncementEntity> {
-        return churchService.getOgloszeniaUrls().urlList.map { url ->
-            ogloszeniaEntityMapper.mapToEntity(churchService.getOgloszenia(url))
+    override suspend fun getAnnouncements(): List<AnnouncementEntity> {
+        return churchService.getAnnouncementsUrls().urlList.map { url ->
+            announcementsEntityMapper.mapToEntity(churchService.getAnnouncements(url))
         }
     }
+
+    override suspend fun getIntentions(): List<IntentionEntity> {
+        return churchService.getIntentionsUrls().urlList.map { url ->
+            intentionEntityMapper.mapToEntity(churchService.getIntentions(url))
+        }
+    }
+
+    override suspend fun getCemetery(): CemeteryEntity {
+        return cemeteryEntityMapper.mapToEntity(churchService.getCemetery())
+    }
+
+    override suspend fun getContact(): ContactEntity {
+        return contactEntityMapper.mapToEntity(churchService.getContact())
+    }
+
+    override suspend fun getConfession(): ConfessionEntity {
+        return confessionEntityMapper.mapToEntity(churchService.getConfession())
+    }
+
+    override suspend fun getHistory(): HistoryEntity {
+        return historyEntityMapper.mapToEntity(churchService.getHistory())
+    }
+
+    override suspend fun getMasses(): MassesEntity {
+        return massesEntityMapper.mapToEntity(churchService.getMasses())
+    }
+
 }
