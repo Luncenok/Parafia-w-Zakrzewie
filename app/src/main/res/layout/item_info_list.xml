@@ -2,7 +2,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2023 . All rights reserved.
-  ~  * Last modified 9/15/23, 6:16 PM
+  ~  * Last modified 9/16/23, 9:06 AM
   ~  */
   -->
 
@@ -27,6 +27,6 @@
             android:elevation="3dp"
             android:padding="10dp"
             android:text="@string/go_download_data"
-            android:textSize="25sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 </layout>
