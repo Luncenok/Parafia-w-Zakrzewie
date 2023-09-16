@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:10 PM
+ *  * Last modified 9/16/23, 5:15 PM
  *
  */
 
@@ -44,7 +44,7 @@ class ChurchRepositoryImp @Inject constructor(
     override suspend fun getNews(): Flow<List<News>> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isNewsCached()
         val newsList =
-            dataSourceFactory.getDataStore(isCached).getNews().map { newsEntity ->
+            dataSourceFactory.getNewsDataStore(isCached).getNews().map { newsEntity ->
                 newsMapper.mapFromEntity(newsEntity)
             }
         saveNews(newsList)
@@ -54,7 +54,8 @@ class ChurchRepositoryImp @Inject constructor(
     override suspend fun getAnnouncements(): Flow<List<Announcement>> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isAnnouncementsCached()
         val announcementList =
-            dataSourceFactory.getDataStore(isCached).getAnnouncements().map { announcementEntity ->
+            dataSourceFactory.getAnnouncementsDataStore(isCached).getAnnouncements()
+                .map { announcementEntity ->
                 announcementMapper.mapFromEntity(announcementEntity)
             }
         saveAnnouncements(announcementList)
@@ -64,7 +65,8 @@ class ChurchRepositoryImp @Inject constructor(
     override suspend fun getIntentions(): Flow<List<Intention>> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isIntentionsCached()
         val intentionsList =
-            dataSourceFactory.getDataStore(isCached).getIntentions().map { intentionEntity ->
+            dataSourceFactory.getIntentionsDataStore(isCached).getIntentions()
+                .map { intentionEntity ->
                 intentionMapper.mapFromEntity(intentionEntity)
             }
         saveIntentions(intentionsList)
@@ -73,7 +75,7 @@ class ChurchRepositoryImp @Inject constructor(
 
     override suspend fun getCemetery(): Flow<Cemetery> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isCemeteryCached()
-        val cemeteryEntity = dataSourceFactory.getDataStore(isCached).getCemetery()
+        val cemeteryEntity = dataSourceFactory.getCemeteryDataStore(isCached).getCemetery()
         val cemetery = cemeteryMapper.mapFromEntity(cemeteryEntity)
         saveCemetery(cemetery)
         emit(cemetery)
@@ -81,7 +83,7 @@ class ChurchRepositoryImp @Inject constructor(
 
     override suspend fun getContact(): Flow<Contact> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isContactCached()
-        val contactEntity = dataSourceFactory.getDataStore(isCached).getContact()
+        val contactEntity = dataSourceFactory.getContactDataStore(isCached).getContact()
         val contact = contactMapper.mapFromEntity(contactEntity)
         saveContact(contact)
         emit(contact)
@@ -89,7 +91,7 @@ class ChurchRepositoryImp @Inject constructor(
 
     override suspend fun getConfession(): Flow<Confession> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isConfessionCached()
-        val confessionEntity = dataSourceFactory.getDataStore(isCached).getConfession()
+        val confessionEntity = dataSourceFactory.getConfessionDataStore(isCached).getConfession()
         val confession = confessionMapper.mapFromEntity(confessionEntity)
         saveConfession(confession)
         emit(confession)
@@ -97,7 +99,7 @@ class ChurchRepositoryImp @Inject constructor(
 
     override suspend fun getHistory(): Flow<History> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isHistoryCached()
-        val historyEntity = dataSourceFactory.getDataStore(isCached).getHistory()
+        val historyEntity = dataSourceFactory.getHistoryDataStore(isCached).getHistory()
         val history = historyMapper.mapFromEntity(historyEntity)
         saveHistory(history)
         emit(history)
@@ -105,7 +107,7 @@ class ChurchRepositoryImp @Inject constructor(
 
     override suspend fun getMasses(): Flow<Masses> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isMassesCached()
-        val massesEntity = dataSourceFactory.getDataStore(isCached).getMasses()
+        val massesEntity = dataSourceFactory.getMassesDataStore(isCached).getMasses()
         val masses = massesMapper.mapFromEntity(massesEntity)
         saveMasses(masses)
         emit(masses)

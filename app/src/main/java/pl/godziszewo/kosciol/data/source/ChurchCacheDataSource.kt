@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:20 PM
+ *  * Last modified 9/16/23, 5:00 PM
  *
  */
 
@@ -57,35 +57,42 @@ class ChurchCacheDataSource @Inject constructor(
 
     override suspend fun saveNews(listNews: List<NewsEntity>) {
         churchCache.saveNews(listNews)
-        churchCache.setLastCacheTime(System.currentTimeMillis())
+        churchCache.setNewsLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveAnnouncements(listAnnouncements: List<AnnouncementEntity>) {
         churchCache.saveAnnouncements(listAnnouncements)
+        churchCache.setAnnouncementsLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveIntentions(listIntentions: List<IntentionEntity>) {
         churchCache.saveIntentions(listIntentions)
+        churchCache.setIntentionsLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveCemetery(cemetery: CemeteryEntity) {
         churchCache.saveCemetery(cemetery)
+        churchCache.setCemeteryLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveContact(contact: ContactEntity) {
         churchCache.saveContact(contact)
+        churchCache.setContactLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveConfession(confession: ConfessionEntity) {
         churchCache.saveConfession(confession)
+        churchCache.setConfessionLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveHistory(history: HistoryEntity) {
         churchCache.saveHistory(history)
+        churchCache.setHistoryLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun saveMasses(masses: MassesEntity) {
         churchCache.saveMasses(masses)
+        churchCache.setMassesLastCacheTime(System.currentTimeMillis())
     }
 
     override suspend fun isNewsCached(): Boolean {

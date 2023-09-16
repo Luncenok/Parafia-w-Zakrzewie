@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:20 PM
+ *  * Last modified 9/16/23, 5:08 PM
  *
  */
 
@@ -42,8 +42,22 @@ interface ChurchCache {
     suspend fun isConfessionCached(): Boolean
     suspend fun isHistoryCached(): Boolean
     suspend fun isMassesCached(): Boolean
-    suspend fun setLastCacheTime(lastCache: Long)
-    suspend fun isExpired(): Boolean
+    suspend fun setNewsLastCacheTime(lastCache: Long)
+    suspend fun setAnnouncementsLastCacheTime(lastCache: Long)
+    suspend fun setIntentionsLastCacheTime(lastCache: Long)
+    suspend fun setCemeteryLastCacheTime(lastCache: Long)
+    suspend fun setContactLastCacheTime(lastCache: Long)
+    suspend fun setConfessionLastCacheTime(lastCache: Long)
+    suspend fun setHistoryLastCacheTime(lastCache: Long)
+    suspend fun setMassesLastCacheTime(lastCache: Long)
+    suspend fun isNewsExpired(): Boolean
+    suspend fun isAnnouncementsExpired(): Boolean
+    suspend fun isIntentionsExpired(): Boolean
+    suspend fun isCemeteryExpired(): Boolean
+    suspend fun isContactExpired(): Boolean
+    suspend fun isConfessionExpired(): Boolean
+    suspend fun isHistoryExpired(): Boolean
+    suspend fun isMassesExpired(): Boolean
     suspend fun setFirstUse()
     suspend fun getFirstUse(): Boolean
 }

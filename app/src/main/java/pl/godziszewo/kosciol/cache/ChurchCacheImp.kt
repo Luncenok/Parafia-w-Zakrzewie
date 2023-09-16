@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 12:10 AM
+ *  * Last modified 9/16/23, 5:15 PM
  *
  */
 
@@ -157,8 +157,36 @@ class ChurchCacheImp @Inject constructor(
     }
 
 
-    override suspend fun setLastCacheTime(lastCache: Long) {
-        preferencesHelper.lastCacheTime = lastCache
+    override suspend fun setNewsLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeNews = lastCache
+    }
+
+    override suspend fun setAnnouncementsLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeAnnouncements = lastCache
+    }
+
+    override suspend fun setIntentionsLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeIntentions = lastCache
+    }
+
+    override suspend fun setCemeteryLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeCemetery = lastCache
+    }
+
+    override suspend fun setContactLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeContact = lastCache
+    }
+
+    override suspend fun setConfessionLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeConfession = lastCache
+    }
+
+    override suspend fun setHistoryLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeHistory = lastCache
+    }
+
+    override suspend fun setMassesLastCacheTime(lastCache: Long) {
+        preferencesHelper.lastCacheTimeMasses = lastCache
     }
 
     override suspend fun setFirstUse() {
@@ -169,17 +197,87 @@ class ChurchCacheImp @Inject constructor(
         return preferencesHelper.isFirstUse
     }
 
-    override suspend fun isExpired(): Boolean {
+    override suspend fun isNewsExpired(): Boolean {
         val currentTime = System.currentTimeMillis()
-        val lastUpdateTime = getLastCacheUpdateTimeMillis()
+        val lastUpdateTime = getNewsLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isAnnouncementsExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getAnnouncementsLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isIntentionsExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getIntentionsLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isCemeteryExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getCemeteryLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isContactExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getContactLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isConfessionExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getConfessionLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isHistoryExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getHistoryLastCacheUpdateTimeMillis()
+        return currentTime - lastUpdateTime > EXPIRATION_TIME
+    }
+
+    override suspend fun isMassesExpired(): Boolean {
+        val currentTime = System.currentTimeMillis()
+        val lastUpdateTime = getMassesLastCacheUpdateTimeMillis()
         return currentTime - lastUpdateTime > EXPIRATION_TIME
     }
 
     /**
      * Get in millis, the last time the cache was accessed.
      */
-    private fun getLastCacheUpdateTimeMillis(): Long {
-        return preferencesHelper.lastCacheTime
+    private fun getNewsLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeNews
+    }
+
+    private fun getAnnouncementsLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeAnnouncements
+    }
+
+    private fun getIntentionsLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeIntentions
+    }
+
+    private fun getCemeteryLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeCemetery
+    }
+
+    private fun getContactLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeContact
+    }
+
+    private fun getConfessionLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeConfession
+    }
+
+    private fun getHistoryLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeHistory
+    }
+
+    private fun getMassesLastCacheUpdateTimeMillis(): Long {
+        return preferencesHelper.lastCacheTimeMasses
     }
 
     companion object {
