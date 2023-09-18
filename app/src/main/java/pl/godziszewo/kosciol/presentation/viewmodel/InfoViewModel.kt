@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 12:10 AM
+ *  * Last modified 9/18/23, 4:36 PM
  *
  */
 
@@ -125,7 +125,24 @@ class InfoViewModel @Inject constructor(
 
     private suspend fun loadHistoryInfo() {
         getHistoryInfoUseCase(Unit).collect {
-            _infoList.postValue(InfoUIModel.Success(listOf(it.textList)))
+            _infoList.postValue(
+                InfoUIModel.Success(
+                    listOf(
+                        listOf(
+                            """
+                <h3>Biuro Parafialne</h3><br>
+                <p>Czynne codziennie po wieczornej Mszy Świętej<p>
+            """.trimIndent()
+                        ),
+                        it.textList1,
+                        it.textList2,
+                        it.textList3,
+                        it.textList4,
+                        it.textList5,
+                        it.textList6,
+                    )
+                )
+            )
         }
     }
 

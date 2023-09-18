@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 12:06 AM
+ *  * Last modified 9/18/23, 3:50 PM
  *
  */
 
@@ -12,7 +12,7 @@ import androidx.room.migration.Migration
 
 class Migrations {
     companion object {
-        const val DB_VERSION = 10
+        const val DB_VERSION = 11
 
         fun getMigrations(): Array<Migration> {
             return arrayOf(

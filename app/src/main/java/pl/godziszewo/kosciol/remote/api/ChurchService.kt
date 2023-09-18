@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:48 PM
+ *  * Last modified 9/18/23, 3:23 PM
  *
  */
 
@@ -49,7 +49,7 @@ interface ChurchService {
     @GET("kontakt")
     suspend fun getContact(): ContactModel
 
-    @GET("historia_parafii")
+    @GET("sakramenty")
     suspend fun getHistory(): HistoryModel
 
     @GET("sakramenty")

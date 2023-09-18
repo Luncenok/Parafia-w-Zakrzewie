@@ -2,7 +2,7 @@
   ~ /**
   ~  * Created by Mateusz Idziejczak on 05.03.2022
   ~  * Copyright (c) 2023 . All rights reserved.
-  ~  * Last modified 9/16/23, 4:43 PM
+  ~  * Last modified 9/18/23, 3:16 PM
   ~  */
   -->
 
@@ -16,6 +16,7 @@
     <string name="aktualnosci">Aktualności</string>
     <string name="intencje">Intencje</string>
     <string name="parafia">Parafia</string>
+    <string name="biuro">Biuro</string>
     <string name="photos">Zdjęcia</string>
     <string name="contact">Kontakt</string>
     <string name="donate">Złóż ofiarę</string>

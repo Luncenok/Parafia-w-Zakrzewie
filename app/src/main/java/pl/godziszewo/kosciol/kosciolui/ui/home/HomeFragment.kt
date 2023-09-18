@@ -2,12 +2,14 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:03 PM
+ *  * Last modified 9/18/23, 4:08 PM
  *
  */
 
 package pl.godziszewo.kosciol.kosciolui.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -16,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import pl.godziszewo.kosciol.databinding.HomeFragmentBinding
 import pl.godziszewo.kosciol.kosciolui.base.BaseFragment
 import pl.godziszewo.kosciol.presentation.viewmodel.HomeViewModel
+
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
@@ -26,7 +29,11 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.homeCardNews.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("NEWS"))
+            //findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("NEWS"))
+            val url = "https://www.facebook.com/kazimierz.zakrzewo"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.setData(Uri.parse(url))
+            startActivity(i)
         }
         binding.homeCardAnnouncements.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("ANNOUNCEMENTS"))
@@ -37,7 +44,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
         binding.homeCardConfession.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("CONFESSION"))
         }
-        binding.homeCardContakt.setOnClickListener {
+        binding.homeCardContact.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionToInfoFragment("CONTACT"))
         }
         binding.homeCardHistory.setOnClickListener {

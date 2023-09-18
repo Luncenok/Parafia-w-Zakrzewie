@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 8:18 PM
+ *  * Last modified 9/18/23, 3:39 PM
  *
  */
 
@@ -15,14 +15,24 @@ import javax.inject.Inject
 class HistoryMapper @Inject constructor() : Mapper<HistoryEntity, History> {
     override fun mapFromEntity(type: HistoryEntity): History {
         return History(
-            textList = type.textList
+            textList1 = type.textList1,
+            textList2 = type.textList2,
+            textList3 = type.textList3,
+            textList4 = type.textList4,
+            textList5 = type.textList5,
+            textList6 = type.textList6
         )
     }
 
     override fun mapToEntity(type: History): HistoryEntity {
         return HistoryEntity(
             id = 0,
-            textList = type.textList
+            textList1 = type.textList1,
+            textList2 = type.textList2,
+            textList3 = type.textList3,
+            textList4 = type.textList4,
+            textList5 = type.textList5,
+            textList6 = type.textList6
         )
     }
 }

@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 9:48 PM
+ *  * Last modified 9/18/23, 3:33 PM
  *
  */
 
@@ -17,7 +17,12 @@ class HistoryEntityMapper @Inject constructor() :
 
     override fun mapToEntity(model: HistoryModel): HistoryEntity {
         return HistoryEntity(
-            textList = model.textList
+            textList1 = model.textList1,
+            textList2 = model.textList2,
+            textList3 = model.textList3,
+            textList4 = model.textList4,
+            textList5 = model.textList5,
+            textList6 = model.textList6
         )
     }
 }
