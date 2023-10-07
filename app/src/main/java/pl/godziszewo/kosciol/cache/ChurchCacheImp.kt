@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 5:15 PM
+ *  * Last modified 10/7/23, 1:01 PM
  *
  */
 
@@ -282,8 +282,8 @@ class ChurchCacheImp @Inject constructor(
 
     companion object {
         /**
-         * Expiration time set to 15 minutes
+         * Expiration time set to 1 second
          */
-        const val EXPIRATION_TIME = (1000 * 60 * 15).toLong()
+        const val EXPIRATION_TIME = (1000).toLong()
     }
 }

@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:20 PM
+ *  * Last modified 10/7/23, 1:01 PM
  *
  */
 
@@ -24,7 +24,7 @@ import pl.godziszewo.kosciol.cache.models.NewsCacheEntity
 @Dao
 interface ChurchDao {
 
-    @Query("SELECT * FROM news")
+    @Query("SELECT * FROM news ORDER BY SUBSTR(date, INSTR(date, ', ') + 2, LENGTH(date) - INSTR(date, ', ') - 1)")
     fun getAllNews(): List<NewsCacheEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -48,13 +48,13 @@ interface ChurchDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addConfessions(confessionCacheEntity: ConfessionCacheEntity)
 
-    @Query("SELECT * FROM intentions")
+    @Query("SELECT * FROM intentions ORDER BY SUBSTR(dateRange, INSTR(dateRange, ' ') + 1, LENGTH(dateRange) - INSTR(dateRange, ' ') - 1)")
     fun getAllIntentions(): List<IntentionCacheEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addIntention(vararg intentionCacheEntity: IntentionCacheEntity)
 
-    @Query("SELECT * FROM announcements")
+    @Query("SELECT * FROM news ORDER BY SUBSTR(date, INSTR(date, ', ') + 2, LENGTH(date) - INSTR(date, ', ') - 1)")
     fun getAllAnnouncements(): List<AnnouncementCacheEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
