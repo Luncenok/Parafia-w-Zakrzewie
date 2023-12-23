@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:10 PM
+ *  * Last modified 12/23/23, 2:05 PM
  *
  */
 
@@ -20,8 +20,8 @@ import pl.godziszewo.kosciol.data.models.NewsEntity
 interface ChurchDataSource {
     // Remote and cache
     suspend fun getNews(): List<NewsEntity>
-    suspend fun getAnnouncements(): List<AnnouncementEntity>
-    suspend fun getIntentions(): List<IntentionEntity>
+    suspend fun getAnnouncements(): AnnouncementEntity
+    suspend fun getIntentions(): IntentionEntity
     suspend fun getCemetery(): CemeteryEntity
     suspend fun getContact(): ContactEntity
     suspend fun getConfession(): ConfessionEntity
@@ -30,8 +30,8 @@ interface ChurchDataSource {
 
     // Cache
     suspend fun saveNews(listNews: List<NewsEntity>)
-    suspend fun saveAnnouncements(listAnnouncements: List<AnnouncementEntity>)
-    suspend fun saveIntentions(listIntentions: List<IntentionEntity>)
+    suspend fun saveAnnouncements(announcements: AnnouncementEntity)
+    suspend fun saveIntentions(intentions: IntentionEntity)
     suspend fun saveCemetery(cemetery: CemeteryEntity)
     suspend fun saveContact(contact: ContactEntity)
     suspend fun saveConfession(confession: ConfessionEntity)

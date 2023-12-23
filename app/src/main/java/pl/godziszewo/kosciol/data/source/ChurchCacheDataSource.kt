@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 5:00 PM
+ *  * Last modified 12/23/23, 2:16 PM
  *
  */
 
@@ -27,11 +27,11 @@ class ChurchCacheDataSource @Inject constructor(
         return churchCache.getNews()
     }
 
-    override suspend fun getAnnouncements(): List<AnnouncementEntity> {
+    override suspend fun getAnnouncements(): AnnouncementEntity {
         return churchCache.getAnnouncements()
     }
 
-    override suspend fun getIntentions(): List<IntentionEntity> {
+    override suspend fun getIntentions(): IntentionEntity {
         return churchCache.getIntentions()
     }
 
@@ -60,13 +60,13 @@ class ChurchCacheDataSource @Inject constructor(
         churchCache.setNewsLastCacheTime(System.currentTimeMillis())
     }
 
-    override suspend fun saveAnnouncements(listAnnouncements: List<AnnouncementEntity>) {
-        churchCache.saveAnnouncements(listAnnouncements)
+    override suspend fun saveAnnouncements(announcements: AnnouncementEntity) {
+        churchCache.saveAnnouncements(announcements)
         churchCache.setAnnouncementsLastCacheTime(System.currentTimeMillis())
     }
 
-    override suspend fun saveIntentions(listIntentions: List<IntentionEntity>) {
-        churchCache.saveIntentions(listIntentions)
+    override suspend fun saveIntentions(intentions: IntentionEntity) {
+        churchCache.saveIntentions(intentions)
         churchCache.setIntentionsLastCacheTime(System.currentTimeMillis())
     }
 

@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 5:15 PM
+ *  * Last modified 12/23/23, 2:47 PM
  *
  */
 
@@ -51,26 +51,21 @@ class ChurchRepositoryImp @Inject constructor(
         emit(newsList)
     }
 
-    override suspend fun getAnnouncements(): Flow<List<Announcement>> = flow {
+    override suspend fun getAnnouncements(): Flow<Announcement> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isAnnouncementsCached()
-        val announcementList =
+        val announcementEntity =
             dataSourceFactory.getAnnouncementsDataStore(isCached).getAnnouncements()
-                .map { announcementEntity ->
-                announcementMapper.mapFromEntity(announcementEntity)
-            }
-        saveAnnouncements(announcementList)
-        emit(announcementList)
+        val announcement = announcementMapper.mapFromEntity(announcementEntity)
+        saveAnnouncements(announcement)
+        emit(announcement)
     }
 
-    override suspend fun getIntentions(): Flow<List<Intention>> = flow {
+    override suspend fun getIntentions(): Flow<Intention> = flow {
         val isCached = dataSourceFactory.getCacheDataSource().isIntentionsCached()
-        val intentionsList =
-            dataSourceFactory.getIntentionsDataStore(isCached).getIntentions()
-                .map { intentionEntity ->
-                intentionMapper.mapFromEntity(intentionEntity)
-            }
-        saveIntentions(intentionsList)
-        emit(intentionsList)
+        val intentionsEntity = dataSourceFactory.getIntentionsDataStore(isCached).getIntentions()
+        val intentions = intentionMapper.mapFromEntity(intentionsEntity)
+        saveIntentions(intentions)
+        emit(intentions)
     }
 
     override suspend fun getCemetery(): Flow<Cemetery> = flow {
@@ -120,18 +115,14 @@ class ChurchRepositoryImp @Inject constructor(
         dataSourceFactory.getCacheDataSource().saveNews(newsEntities)
     }
 
-    override suspend fun saveAnnouncements(listAnnouncement: List<Announcement>) {
-        val announcementEntities = listAnnouncement.map { announcement ->
-            announcementMapper.mapToEntity(announcement)
-        }
-        dataSourceFactory.getCacheDataSource().saveAnnouncements(announcementEntities)
+    override suspend fun saveAnnouncements(announcement: Announcement) {
+        val announcementEntity = announcementMapper.mapToEntity(announcement)
+        dataSourceFactory.getCacheDataSource().saveAnnouncements(announcementEntity)
     }
 
-    override suspend fun saveIntentions(listIntentions: List<Intention>) {
-        val intentionEntities = listIntentions.map { intention ->
-            intentionMapper.mapToEntity(intention)
-        }
-        dataSourceFactory.getCacheDataSource().saveIntentions(intentionEntities)
+    override suspend fun saveIntentions(intention: Intention) {
+        val intentionEntity = intentionMapper.mapToEntity(intention)
+        dataSourceFactory.getCacheDataSource().saveIntentions(intentionEntity)
     }
 
     override suspend fun saveCemetery(cemetery: Cemetery) {

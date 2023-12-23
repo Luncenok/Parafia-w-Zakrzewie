@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/16/23, 5:08 PM
+ *  * Last modified 12/23/23, 2:16 PM
  *
  */
 
@@ -20,10 +20,10 @@ import pl.godziszewo.kosciol.data.models.NewsEntity
 interface ChurchCache {
     suspend fun getNews(): List<NewsEntity>
     suspend fun saveNews(listNews: List<NewsEntity>)
-    suspend fun getAnnouncements(): List<AnnouncementEntity>
-    suspend fun saveAnnouncements(listAnnouncements: List<AnnouncementEntity>)
-    suspend fun getIntentions(): List<IntentionEntity>
-    suspend fun saveIntentions(listIntentions: List<IntentionEntity>)
+    suspend fun getAnnouncements(): AnnouncementEntity
+    suspend fun saveAnnouncements(announcements: AnnouncementEntity)
+    suspend fun getIntentions(): IntentionEntity
+    suspend fun saveIntentions(intentions: IntentionEntity)
     suspend fun getCemetery(): CemeteryEntity
     suspend fun saveCemetery(cemetery: CemeteryEntity)
     suspend fun getContact(): ContactEntity

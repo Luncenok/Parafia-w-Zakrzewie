@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:48 PM
+ *  * Last modified 12/23/23, 2:24 PM
  *
  */
 
@@ -12,7 +12,7 @@ import pl.droidsonroids.jspoon.annotation.Selector
 
 data class ContactModel(
     @Selector(
-        ".contact-address h3, .contact-address p",
+        ".contact h3, .contact p",
         attr = "outerHtml"
     ) val textList: List<String> = emptyList()
 )

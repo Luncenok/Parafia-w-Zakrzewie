@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 10/7/23, 1:01 PM
+ *  * Last modified 12/23/23, 2:19 PM
  *
  */
 
@@ -55,32 +55,24 @@ class ChurchCacheImp @Inject constructor(
         )
     }
 
-    override suspend fun getAnnouncements(): List<AnnouncementEntity> {
+    override suspend fun getAnnouncements(): AnnouncementEntity {
         return churchDao.getAllAnnouncements().map { cacheAnnouncements ->
             announcementCacheMapper.mapFromCached(cacheAnnouncements)
-        }
+        }.first()
     }
 
-    override suspend fun saveAnnouncements(listAnnouncements: List<AnnouncementEntity>) {
-        churchDao.addAnnouncement(
-            *listAnnouncements.map { announcementEntity ->
-                announcementCacheMapper.mapToCached(announcementEntity)
-            }.toTypedArray()
-        )
+    override suspend fun saveAnnouncements(announcements: AnnouncementEntity) {
+        churchDao.addAnnouncement(announcementCacheMapper.mapToCached(announcements))
     }
 
-    override suspend fun getIntentions(): List<IntentionEntity> {
+    override suspend fun getIntentions(): IntentionEntity {
         return churchDao.getAllIntentions().map { cacheIntentions ->
             intentionCacheMapper.mapFromCached(cacheIntentions)
-        }
+        }.first()
     }
 
-    override suspend fun saveIntentions(listIntentions: List<IntentionEntity>) {
-        churchDao.addIntention(
-            *listIntentions.map { intentionEntity ->
-                intentionCacheMapper.mapToCached(intentionEntity)
-            }.toTypedArray()
-        )
+    override suspend fun saveIntentions(intentions: IntentionEntity) {
+        churchDao.addIntention(intentionCacheMapper.mapToCached(intentions))
     }
 
     override suspend fun getCemetery(): CemeteryEntity {

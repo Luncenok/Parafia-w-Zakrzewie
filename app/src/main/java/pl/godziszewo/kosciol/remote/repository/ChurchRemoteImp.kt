@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 9:48 PM
+ *  * Last modified 12/23/23, 2:05 PM
  *
  */
 
@@ -45,16 +45,18 @@ class ChurchRemoteImp @Inject constructor(
         }
     }
 
-    override suspend fun getAnnouncements(): List<AnnouncementEntity> {
-        return churchService.getAnnouncementsUrls().urlList.map { url ->
-            announcementsEntityMapper.mapToEntity(churchService.getAnnouncements(url))
-        }
+    override suspend fun getAnnouncements(): AnnouncementEntity {
+        return announcementsEntityMapper.mapToEntity(churchService.getAnnouncements())
+//        return churchService.getAnnouncementsUrls().urlList.map { url ->
+//            announcementsEntityMapper.mapToEntity(churchService.getAnnouncements(url))
+//        }
     }
 
-    override suspend fun getIntentions(): List<IntentionEntity> {
-        return churchService.getIntentionsUrls().urlList.map { url ->
-            intentionEntityMapper.mapToEntity(churchService.getIntentions(url))
-        }
+    override suspend fun getIntentions(): IntentionEntity {
+        return intentionEntityMapper.mapToEntity(churchService.getIntentions())
+//        return churchService.getIntentionsUrls().urlList.map { url ->
+//            intentionEntityMapper.mapToEntity(churchService.getIntentions(url))
+//        }
     }
 
     override suspend fun getCemetery(): CemeteryEntity {

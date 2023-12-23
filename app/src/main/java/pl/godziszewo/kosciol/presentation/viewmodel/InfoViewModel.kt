@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/18/23, 4:36 PM
+ *  * Last modified 12/23/23, 2:05 PM
  *
  */
 
@@ -82,13 +82,13 @@ class InfoViewModel @Inject constructor(
 
     private suspend fun loadAnnouncements() {
         getAnnouncementsListUseCase(Unit).collect {
-            _infoList.postValue(InfoUIModel.Success(it.map { it.textList }))
+            _infoList.postValue(InfoUIModel.Success(listOf(it.textList)))
         }
     }
 
     private suspend fun loadIntentions() {
         getIntentionsListUseCase(Unit).collect {
-            _infoList.postValue(InfoUIModel.Success(it.map { it.textList }))
+            _infoList.postValue(InfoUIModel.Success(listOf(it.textList)))
         }
     }
 

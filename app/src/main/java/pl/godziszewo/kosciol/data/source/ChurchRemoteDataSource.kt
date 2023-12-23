@@ -2,7 +2,7 @@
  * *
  *  * Created by Mateusz Idziejczak on 05.03.2022
  *  * Copyright (c) 2023 . All rights reserved.
- *  * Last modified 9/15/23, 11:21 PM
+ *  * Last modified 12/23/23, 2:14 PM
  *
  */
 
@@ -27,11 +27,11 @@ class ChurchRemoteDataSource @Inject constructor(
         return churchRemote.getNews()
     }
 
-    override suspend fun getAnnouncements(): List<AnnouncementEntity> {
+    override suspend fun getAnnouncements(): AnnouncementEntity {
         return churchRemote.getAnnouncements()
     }
 
-    override suspend fun getIntentions(): List<IntentionEntity> {
+    override suspend fun getIntentions(): IntentionEntity {
         return churchRemote.getIntentions()
     }
 
@@ -59,11 +59,11 @@ class ChurchRemoteDataSource @Inject constructor(
         throw UnsupportedOperationException("Save news is not supported for RemoteDataSource")
     }
 
-    override suspend fun saveAnnouncements(listAnnouncements: List<AnnouncementEntity>) {
+    override suspend fun saveAnnouncements(announcements: AnnouncementEntity) {
         throw UnsupportedOperationException("Save announcement is not supported for RemoteDataSource")
     }
 
-    override suspend fun saveIntentions(listIntentions: List<IntentionEntity>) {
+    override suspend fun saveIntentions(intentions: IntentionEntity) {
         throw UnsupportedOperationException("Save intention is not supported for RemoteDataSource")
     }
 
